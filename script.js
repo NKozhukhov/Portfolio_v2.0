@@ -54,5 +54,11 @@ navA.id = arrId[i];
 navA.textContent = arrValue[i];
 navA.style.cssText = "font-size: 1.7rem; font-weight: bold; color: var(--text-color); margin-left: 4rem; transition: 0.3s; cursor: pointer;";
 nav.insertAdjacentElement('beforeend', navA);
+
+/* изменение цвета при наведении */
+navA.onmouseover = function() {
+    navA.style.color = "#ebc08d";}
+    navA.onmouseleave = function() {
+    navA.style.color = "#fff";  }
 }
 
