@@ -62,3 +62,15 @@ navA.onmouseover = function() {
     navA.style.color = "#fff";  }
 }
 
+
+
+/* создание секций в теле страницы */
+
+for (let i = 0; i< arrId.length; i++ ){
+    let section = document.createElement('section');
+    section.className = arrId[i];
+  section.id = arrId[i];
+  section.style.cssText = "min-height: 100vh; padding: 15rem 5% 2rem;"
+  body.insertAdjacentElement("beforeend", section);
+  
+  }
