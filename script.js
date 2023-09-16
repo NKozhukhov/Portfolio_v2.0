@@ -43,3 +43,16 @@ let nav = document.createElement('nav');
 nav.className = 'nav';
 nav.id = 'nav';
 header.insertAdjacentElement('beforeend', nav);
+
+/* список навигации */
+
+let arrId = ["home", "skills", "roadmap", "portfolio", "contacts"];
+let arrValue = ["В начало", "Мои навыки", "Мои планы", "Портфолио", "Контакты"];
+for(let i =0; i < arrId.length; i++) {
+let navA = document.createElement('a');
+navA.id = arrId[i];
+navA.textContent = arrValue[i];
+navA.style.cssText = "font-size: 1.7rem; font-weight: bold; color: var(--text-color); margin-left: 4rem; transition: 0.3s; cursor: pointer;";
+nav.insertAdjacentElement('beforeend', navA);
+}
+
