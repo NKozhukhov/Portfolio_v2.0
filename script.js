@@ -74,3 +74,21 @@ for (let i = 0; i< arrId.length; i++ ){
   body.insertAdjacentElement("beforeend", section);
   
   }
+
+
+
+  /* Секция 1. #home. */
+
+  let sectionHome = document.querySelector('section.home');
+
+  /* добавление фото в блок 1 */
+
+let section1_div_img = document.createElement("div");
+section1_div_img.className = "imgBx";
+sectionHome.insertAdjacentElement("afterbegin", section1_div_img);;
+
+let mainImg =document.createElement("img");
+mainImg.src = "images/img-left.png";
+mainImg.style.cssText = "width: 50vh; height: auto;"
+
+section1_div_img.insertAdjacentElement('afterbegin', mainImg);
