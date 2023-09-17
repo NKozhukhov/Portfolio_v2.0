@@ -119,3 +119,20 @@ let section1_p = document.createElement('p');
 section1_p.textContent = 'Моя цель - стать одним из лучших разработчиков в России на языке JavaScript';
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_p);
 
+/* добавление иконок */
+
+head.insertAdjacentHTML('beforeend', '<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>')
+
+let section1_div_iconBox = document.createElement('div');
+section1_div_iconBox.className = "social-media";
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_div_iconBox);
+
+let socialMediaClass = ["bx bxl-vk", "bx bxl-instagram-alt", "bx bxl-whatsapp", "bx bxl-telegram", "bx bxl-github"];
+for(let i =0; i < socialMediaClass.length; i++) {
+let icon = document.createElement('a');
+icon.setAttribute('href', '#');
+icon.className = socialMediaClass[i];
+section1_div_iconBox.insertAdjacentElement('beforeend', icon);
+}
+
+
