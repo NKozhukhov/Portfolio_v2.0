@@ -135,4 +135,10 @@ icon.className = socialMediaClass[i];
 section1_div_iconBox.insertAdjacentElement('beforeend', icon);
 }
 
+/* добавление кнопки связи */
 
+let section1_btn = document.createElement('a');
+section1_btn.setAttribute('href', '#contacts');
+section1_btn.className = section1_btn;
+section1_btn.textContent = "Связаться со мной";
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_btn);
