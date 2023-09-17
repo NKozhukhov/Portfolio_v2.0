@@ -85,10 +85,37 @@ for (let i = 0; i< arrId.length; i++ ){
 
 let section1_div_img = document.createElement("div");
 section1_div_img.className = "imgBx";
-sectionHome.insertAdjacentElement("afterbegin", section1_div_img);;
+sectionHome.insertAdjacentElement('beforeend', section1_div_img);
 
 let mainImg =document.createElement("img");
 mainImg.src = "images/img-left.png";
 mainImg.style.cssText = "width: 50vh; height: auto;"
 
 section1_div_img.insertAdjacentElement('afterbegin', mainImg);
+
+/* добавление блока с текстом */
+
+let section1_div_contentBox = document.createElement('div');
+section1_div_contentBox.className = "home-content";
+sectionHome.insertAdjacentElement('afterbegin', section1_div_contentBox);
+
+let section1_h2 = document.createElement('h2');
+section1_h2.textContent = 'Привет, меня зовут';
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_h2);
+
+let section1_h1 = document.createElement('h1');
+section1_h1.textContent = 'Никита Кожухов';
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_h1);
+
+let section1_h3 = document.createElement('h3');
+section1_h3.textContent = 'А это моя страница Портфолио!';
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3);
+
+let section1_h3_2 = document.createElement('h3');
+section1_h3_2.textContent = 'Я - Начинающий Разработчик';
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3_2);
+
+let section1_p = document.createElement('p');
+section1_p.textContent = 'Моя цель - стать одним из лучших разработчиков в России на языке JavaScript';
+section1_div_contentBox.insertAdjacentElement('beforeend', section1_p);
+
