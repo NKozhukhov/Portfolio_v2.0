@@ -123,9 +123,10 @@ section1_h3_2.style.cssText = "margin-top: 3rem;margin-bottom: 2rem; font-size: 
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3_2);
 
 let section1_span = document.createElement('span');
+section1_span.className = "mult-text";
 section1_span.style.cssText = "font-size: 4rem;font-weight: bold; color: var(--main-color)";
-section1_span.textContent = 'Разработчик';
 section1_h3_2.appendChild(section1_span);
+
 
 let section1_p = document.createElement('p');
 section1_p.textContent = 'Моя цель - стать одним из лучших разработчиков в России на языке ';
@@ -136,6 +137,35 @@ let section1_span_p = document.createElement('span');
 section1_span_p.style.cssText = "color: var(--main-color); font-weight: bold";
 section1_span_p.textContent = 'JavaScript';
 section1_p.appendChild(section1_span_p);
+
+
+
+
+/* мульти-текст */
+
+/* мигающий курсор */
+let section1_span_cursor = document.createElement('span');
+section1_span_cursor.className = "cursor";
+section1_span_cursor.textContent = ".";
+section1_span_cursor.style.cssText = "display: inline-block; width: 0.4rem; background-color: var(--text-color)";
+section1_h3_2.appendChild(section1_span_cursor);
+
+function blink() {
+  var a = document.getElementsByClassName("cursor");
+  for(var i = 0; i < a.length; i++){
+    var f = a[i];
+    var visib = f.style.visibility;
+    f.style.visibility = visib == 'visible' ? 'hidden' : 'visible';
+   }
+ }
+setInterval(blink, 500);
+
+
+
+
+
+
+
 
 /* добавление иконок */
 
