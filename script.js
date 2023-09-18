@@ -150,9 +150,22 @@ for(let i =0; i < socialMediaClass.length; i++) {
 let icon = document.createElement('a');
 icon.setAttribute('href', '#');
 icon.className = socialMediaClass[i];
-icon.style.cssText = "text-decoration: none;";
+icon.style.cssText = "text-decoration: none; display: inline-flex;justify-content: center;align-items: center;width: 4rem;height: 4rem;background: transparent;border: 0.2rem solid var(--main-color);border-radius: 50%;font-size: 2.8rem;color: var(--main-color);margin: 8rem 1.5rem 3rem 0;transition: 0.5s ease;" ;
 section1_div_iconBox.insertAdjacentElement('beforeend', icon);
+
+icon.onmouseover = function() {
+  icon.style.color = 'var(--second-bg-color)';
+  icon.style.background = 'var(--main-color)';
+  icon.style.boxShadow = '0 0 1rem var(--main-color)';
 }
+  icon.onmouseleave = function() {
+    icon.style.color = "var(--main-color)";  
+    icon.style.background = 'transparent';
+    icon.style.boxShadow = 'none';
+  }
+}
+
+
 
 /* добавление кнопки связи */
 
@@ -160,10 +173,13 @@ let section1_btn = document.createElement('a');
 section1_btn.setAttribute('href', '#contacts');
 section1_btn.className = section1_btn;
 section1_btn.textContent = "Связаться со мной";
-section1_btn.style.cssText = "text-decoration: none;";
+section1_btn.style.cssText = "text-decoration: none; display: inline-block;padding: 1rem 2.8rem;background: var(--main-color);border-radius: 4rem;box-shadow: 0 0 1rem var(--main-color);font-size: 1.6rem;color: var(--second-bg-color);letter-spacing: 0.1rem;font-weight: bold;transition: 0.5s ease;";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_btn);
 
-
-
-
+section1_btn.onmouseover = function() {
+  section1_btn.style.boxShadow = '0 0 1.5rem var(--main-color)';
+}
+section1_btn.onmouseleave = function() {
+  section1_btn.style.boxShadow = '0 0 1rem var(--main-color)';
+  }
 
