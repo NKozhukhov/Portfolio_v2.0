@@ -145,16 +145,16 @@ section1_p.appendChild(section1_span_p);
 
 /* мигающий курсор */
 let section1_span_cursor = document.createElement('span');
-section1_span_cursor.className = "cursor";
+section1_span_cursor.classList.add("cursor", "typing");
 section1_span_cursor.textContent = ".";
 section1_span_cursor.style.cssText = "display: inline-block; width: 0.4rem; background-color: var(--text-color)";
 section1_h3_2.appendChild(section1_span_cursor);
 
 function blink() {
-  var a = document.getElementsByClassName("cursor");
-  for(var i = 0; i < a.length; i++){
-    var f = a[i];
-    var visib = f.style.visibility;
+  let a = document.getElementsByClassName("cursor");
+  for(let i = 0; i < a.length; i++){
+    let f = a[i];
+    let visib = f.style.visibility;
     f.style.visibility = visib == 'visible' ? 'hidden' : 'visible';
    }
  }
@@ -162,8 +162,38 @@ setInterval(blink, 500);
 
 
 
+/* анимированный текст */
 
+const textArray = ["JavaScript-Разработчик", "Frontend-Разработчик", "Fullstack-разработчик"];
+let textArrayElem = 0;
+let symbolIndex = 0;
 
+function type(){
+if(symbolIndex < textArray[textArrayElem].length){
+section1_span.textContent += textArray[textArrayElem].charAt(symbolIndex);
+symbolIndex++;
+setTimeout(type, 50);
+} else{
+setTimeout(erase, 1000);
+    }
+}
+
+function erase(){
+if(symbolIndex > 0){
+  section1_span.textContent = textArray[textArrayElem].substring(0, symbolIndex-1);
+  symbolIndex--;
+  setTimeout(erase, 25);
+}
+else{
+  textArrayElem++;
+  if(textArrayElem >= textArray.length) textArrayElem = 0;
+  setTimeout(type, 500);
+}
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  setTimeout(type, 1000);
+});
 
 
 
