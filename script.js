@@ -80,6 +80,9 @@ for (let i = 0; i< arrId.length; i++ ){
   /* Секция 1. #home. */
 
   let sectionHome = document.querySelector('section.home');
+  sectionHome.style.display = "flex"; 
+  sectionHome.style.justifyContent = "space-between";
+  sectionHome.style.alignItems = "center";
 
   /* добавление фото в блок 1 */
 
@@ -101,23 +104,38 @@ sectionHome.insertAdjacentElement('afterbegin', section1_div_contentBox);
 
 let section1_h2 = document.createElement('h2');
 section1_h2.textContent = 'Привет, меня зовут';
+section1_h2.style.cssText = "font-size: 4rem; font-weight: bold;"
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h2);
 
 let section1_h1 = document.createElement('h1');
 section1_h1.textContent = 'Никита Кожухов';
+section1_h1.style.cssText = "font-size: 6.5rem;font-weight: bold;line-height: 1.2";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h1);
 
 let section1_h3 = document.createElement('h3');
 section1_h3.textContent = 'А это моя страница Портфолио!';
+section1_h3.style.cssText = "font-size: 3rem;font-weight: bold";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3);
 
 let section1_h3_2 = document.createElement('h3');
-section1_h3_2.textContent = 'Я - Начинающий Разработчик';
+section1_h3_2.textContent = 'Я - Начинающий ';
+section1_h3_2.style.cssText = "margin-top: 3rem;margin-bottom: 2rem; font-size: 3rem;font-weight: normal";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3_2);
 
+let section1_span = document.createElement('span');
+section1_span.style.cssText = "font-size: 4rem;font-weight: bold; color: var(--main-color)";
+section1_span.textContent = 'Разработчик';
+section1_h3_2.appendChild(section1_span);
+
 let section1_p = document.createElement('p');
-section1_p.textContent = 'Моя цель - стать одним из лучших разработчиков в России на языке JavaScript';
+section1_p.textContent = 'Моя цель - стать одним из лучших разработчиков в России на языке ';
+section1_p.style.cssText = "font-size: 2.3rem";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_p);
+
+let section1_span_p = document.createElement('span');
+section1_span_p.style.cssText = "color: var(--main-color); font-weight: bold";
+section1_span_p.textContent = 'JavaScript';
+section1_p.appendChild(section1_span_p);
 
 /* добавление иконок */
 
@@ -132,6 +150,7 @@ for(let i =0; i < socialMediaClass.length; i++) {
 let icon = document.createElement('a');
 icon.setAttribute('href', '#');
 icon.className = socialMediaClass[i];
+icon.style.cssText = "text-decoration: none;";
 section1_div_iconBox.insertAdjacentElement('beforeend', icon);
 }
 
@@ -141,4 +160,10 @@ let section1_btn = document.createElement('a');
 section1_btn.setAttribute('href', '#contacts');
 section1_btn.className = section1_btn;
 section1_btn.textContent = "Связаться со мной";
+section1_btn.style.cssText = "text-decoration: none;";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_btn);
+
+
+
+
+
