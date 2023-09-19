@@ -36,7 +36,7 @@ body.insertAdjacentElement('afterbegin', header);
 let logo = document.createElement('img');
 logo.className = 'logo';
 logo.src = 'images/Logo.png'
-logo.style.cssText = "width: 8rem; height: auto; filter: drop-shadow(0 0 1rem var(--dark-color))";
+logo.style.cssText = "width: 8rem; height: auto; filter: drop-shadow(0 0 1.5rem var(--dark-color))";
 header.insertAdjacentElement('afterbegin', logo);
 
 let nav = document.createElement('nav');
@@ -70,7 +70,7 @@ for (let i = 0; i< arrId.length; i++ ){
     let section = document.createElement('section');
     section.className = arrId[i];
   section.id = arrId[i];
-  section.style.cssText = "min-height: 100vh; padding: 15rem 5% 2rem;"
+  section.style.cssText = "box-sizing: border-box; min-height: 100vh; padding: 15rem 5% 2rem;"
   body.insertAdjacentElement("beforeend", section);
   
   }
@@ -88,12 +88,13 @@ for (let i = 0; i< arrId.length; i++ ){
 
 let section1_div_img = document.createElement("div");
 section1_div_img.className = "imgBx";
+section1_div_img.style.boxSizing  = "border-box";
 sectionHome.insertAdjacentElement('beforeend', section1_div_img);
 
 let mainImg =document.createElement("img");
 mainImg.src = "images/img-left.png";
-mainImg.style.cssText = "width: 50vh; height: auto;"
-
+mainImg.style.width = "70vh";
+mainImg.style.boxSizing  = "border-box";
 section1_div_img.insertAdjacentElement('afterbegin', mainImg);
 
 /* добавление блока с текстом */
@@ -104,22 +105,22 @@ sectionHome.insertAdjacentElement('afterbegin', section1_div_contentBox);
 
 let section1_h2 = document.createElement('h2');
 section1_h2.textContent = 'Привет, меня зовут';
-section1_h2.style.cssText = "font-size: 4rem; font-weight: bold;"
+section1_h2.style.cssText = "font-size: 4rem; font-weight: bold; margin: 0; padding: 0";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h2);
 
 let section1_h1 = document.createElement('h1');
 section1_h1.textContent = 'Никита Кожухов';
-section1_h1.style.cssText = "font-size: 6.5rem;font-weight: bold;line-height: 1.2";
+section1_h1.style.cssText = "font-size: 6.5rem;font-weight: bold;line-height: 1.2; margin: 0; padding: 0";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h1);
 
 let section1_h3 = document.createElement('h3');
 section1_h3.textContent = 'А это моя страница Портфолио!';
-section1_h3.style.cssText = "font-size: 3rem;font-weight: bold";
+section1_h3.style.cssText = "font-size: 3rem;font-weight: bold; margin: 0; padding: 0";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3);
 
 let section1_h3_2 = document.createElement('h3');
 section1_h3_2.textContent = 'Я - Начинающий ';
-section1_h3_2.style.cssText = "margin-top: 3rem;margin-bottom: 2rem; font-size: 3rem;font-weight: normal";
+section1_h3_2.style.cssText = "margin: 3rem 0 2rem; font-size: 3rem;font-weight: normal";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_h3_2);
 
 let section1_span = document.createElement('span');
@@ -130,12 +131,12 @@ section1_h3_2.appendChild(section1_span);
 
 let section1_p = document.createElement('p');
 section1_p.textContent = 'Моя цель - стать одним из лучших разработчиков в России на языке ';
-section1_p.style.cssText = "font-size: 2.3rem";
+section1_p.style.cssText = "font-size: 2.3rem; margin: 0; padding: 0; max-width: 75vh";
 section1_div_contentBox.insertAdjacentElement('beforeend', section1_p);
 
 let section1_span_p = document.createElement('span');
 section1_span_p.style.cssText = "color: var(--main-color); font-weight: bold";
-section1_span_p.textContent = 'JavaScript';
+section1_span_p.textContent = 'JavaScript!';
 section1_p.appendChild(section1_span_p);
 
 
@@ -145,7 +146,7 @@ section1_p.appendChild(section1_span_p);
 
 /* мигающий курсор */
 let section1_span_cursor = document.createElement('span');
-section1_span_cursor.classList.add("cursor", "typing");
+section1_span_cursor.classList.add("cursor");
 section1_span_cursor.textContent = ".";
 section1_span_cursor.style.cssText = "display: inline-block; width: 0.4rem; background-color: var(--text-color)";
 section1_h3_2.appendChild(section1_span_cursor);
@@ -172,7 +173,7 @@ function type(){
 if(symbolIndex < textArray[textArrayElem].length){
 section1_span.textContent += textArray[textArrayElem].charAt(symbolIndex);
 symbolIndex++;
-setTimeout(type, 50);
+setTimeout(type, 70);
 } else{
 setTimeout(erase, 1000);
     }
@@ -182,7 +183,7 @@ function erase(){
 if(symbolIndex > 0){
   section1_span.textContent = textArray[textArrayElem].substring(0, symbolIndex-1);
   symbolIndex--;
-  setTimeout(erase, 25);
+  setTimeout(erase, 35);
 }
 else{
   textArrayElem++;
