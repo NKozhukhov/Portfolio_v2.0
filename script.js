@@ -244,3 +244,66 @@ section1_btn.onmouseleave = function() {
   section1_btn.style.boxShadow = '0 0 1rem var(--main-color)';
   }
 
+
+
+
+
+  /* создание секции 2 */
+
+  let sectionSkills = document.querySelector('section.skills');
+  sectionSkills.style.backgroundColor = "var(--second-bg-color)";
+
+  let skills_Heading = document.createElement('h2');
+  skills_Heading.className = "heading";
+  skills_Heading.innerHTML = "Мои текущие навыки";
+  sectionSkills.insertAdjacentElement('afterbegin', skills_Heading);
+  skills_Heading.style.cssText = "text-align: center; font-size: 5rem; margin-bottom: 8rem; color: var(--text-color)";
+
+
+
+
+
+/* progress bar контейнер */
+
+
+  let skills_Container = document.createElement('div');
+  skills_Container.className = "skills-container";
+  sectionSkills.insertAdjacentElement('beforeend', skills_Container);
+
+  let skills_Box = document.createElement('div');
+  skills_Box.className = "skills-box";
+  skills_Container.insertAdjacentElement('beforeend', skills_Box);
+
+  let skills_Icon = document.createElement('i');
+  skills_Icon.className = "bx bxl-html5";
+  skills_Box.insertAdjacentElement('afterbegin', skills_Icon);
+
+  let progressBar = document.createElement('div');
+  progressBar.className = "progress";
+  skills_Box.insertAdjacentElement('beforeend', progressBar);
+
+  let progressBar_H3 = document.createElement('h3');
+  progressBar_H3.textContent = "90 %";
+  progressBar.insertAdjacentElement('beforeend', progressBar_H3);
+
+  let progressBar_H4 = document.createElement('h4');
+  progressBar_H4.textContent = "HTML";
+  progressBar.insertAdjacentElement('beforeend', progressBar_H4);
+
+/* кнопка */
+
+  let progressBar_btn = document.createElement('a');
+progressBar_btn.setAttribute('href', '#');
+progressBar_btn.className = progressBar_btn;
+progressBar_btn.textContent = "Подробнее";
+progressBar_btn.style.cssText = "text-decoration: none; display: inline-block;padding: 1rem 2.8rem;background: var(--main-color);border-radius: 4rem;box-shadow: 0 0 1rem var(--main-color);font-size: 1.6rem;color: var(--second-bg-color);letter-spacing: 0.1rem;font-weight: bold;transition: 0.5s ease;";
+skills_Box.insertAdjacentElement('beforeend', progressBar_btn);
+
+progressBar_btn.onmouseover = function() {
+  progressBar_btn.style.boxShadow = '0 0 1.5rem var(--main-color)';
+}
+progressBar_btn.onmouseleave = function() {
+  progressBar_btn.style.boxShadow = '0 0 1rem var(--main-color)';
+  }
+
+
