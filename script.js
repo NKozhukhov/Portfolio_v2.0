@@ -257,7 +257,7 @@ section1_btn.onmouseleave = function() {
   skills_Heading.className = "heading";
   skills_Heading.innerHTML = "Мои текущие навыки";
   sectionSkills.insertAdjacentElement('afterbegin', skills_Heading);
-  skills_Heading.style.cssText = "text-align: center; font-size: 5rem; margin-bottom: 8rem; color: var(--text-color)";
+  skills_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
 
 
 
@@ -268,7 +268,7 @@ section1_btn.onmouseleave = function() {
 
   let skills_Container = document.createElement('div');
   skills_Container.className = "skills-container";
-  skills_Container.style.cssText = "display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;"
+  skills_Container.style.cssText = "display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5rem;"
   sectionSkills.insertAdjacentElement('beforeend', skills_Container);
 
   
@@ -290,7 +290,7 @@ let arrSkillBxClass=["skill-box1", "skill-box2", "skill-box3", "skill-box4"];
   skills_Container.insertAdjacentElement('beforeend', skills_Box);
   skills_Box.onmouseover = function() {
     skills_Box.style.borderColor = 'var(--main-color)';
-    skills_Box.style.transform = 'scale(1.02)';
+    skills_Box.style.transform = 'scale(1.1)';
   }
   skills_Box.onmouseleave = function() {
   skills_Box.style.borderColor = 'var(--bg-color)';
