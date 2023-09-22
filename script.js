@@ -339,3 +339,56 @@ progressBar_btn.onmouseleave = function() {
   }
 
   }
+
+
+
+
+  /* Секция 3. Дорожная карта. */
+
+
+  let sectionRoadmap = document.querySelector('section.roadmap');
+  
+let roadmapHeading = document.createElement('h2');
+roadmapHeading.className = "roadmapHeading";
+roadmapHeading.textContent = "Моя дорожная карта";
+roadmapHeading.style.cssText = "text-align: center;  font-size: 5rem; margin-bottom: 9rem";
+sectionRoadmap.insertAdjacentElement('afterbegin', roadmapHeading);
+
+let roadmapContainer = document.createElement('div');
+roadmapContainer.className = "roadmap_container";
+roadmapContainer.style.cssText = "display: flex; justify-content: center; align-items: center; margin-top: 7rem";
+sectionRoadmap.insertAdjacentElement('beforeend', roadmapContainer);
+
+
+/* roadmap_box контейнер */
+
+let roadmapBox = document.createElement('div');
+roadmapBox.className = "roadmap_box";
+roadmapBox.style.cssText = "position: relative; width: 45rem;height: 45rem;border: 0.4rem solid #fff;border-radius: 50%;";
+roadmapContainer.insertAdjacentElement('beforeend', roadmapBox);
+
+/* иконки */
+
+let icon_container = document.createElement('div');
+icon_container.className = "icon_container";
+icon_container.style.cssText = "position: relative;left: -50%;width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;cursor: pointer;";
+roadmapBox.insertAdjacentElement('beforeend', icon_container);
+
+let arrIconBoxClass = ["icon_box1", "icon_box2", "icon_box3", "icon_box4", "icon_box5", "icon_box6", "icon_box7", "icon_box8", "icon_box9", "icon_box10"];
+let arrIconBoxAttr = ["content1","content2","content3","content4","content5","content6","content7","content8","content9","content10"];
+let arrIconBoxSrc = ["images/html.png","images/css.png","images/git.png","images/js.png","images/api.png","images/react.png","images/TS.png","images/node.png","images/mongodb.png","images/palette.png"];
+let arrIconBoxNum = [1,2,3,4,5,6,7,8,9,10];
+
+for(let i =0; i <arrIconBoxClass.length; i++){
+
+let icon_box = document.createElement('div');
+icon_box.className = arrIconBoxClass[i];
+icon_box.setAttribute('data-id' , arrIconBoxAttr[i]); 
+icon_box.style.cssText = "position: absolute;width: 5rem;height: 5rem;border-radius: 50%;transition: 0.5s ease;border: 0.1rem solid #fff;box-shadow: 0 0 0 0.4rem var(--second-bg-color), 0 0 0 0.6rem #fff;transform: rotate(calc(360deg / 10 * "+ arrIconBoxNum[i] +"));z-index: 9;transform-origin: 25rem;";
+icon_container.insertAdjacentElement('beforeend', icon_box);
+
+let roadmapImg =document.createElement("img");
+roadmapImg.src = arrIconBoxSrc[i];
+roadmapImg.style.cssText = "position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;object-fit: cover;transform: rotate(calc(-360deg / 10 * "+ arrIconBoxNum[i] +"));transition: 0.5s ease;filter: grayscale(1);"
+icon_box.insertAdjacentElement('afterbegin', roadmapImg);
+}
