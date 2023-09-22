@@ -244,3 +244,98 @@ section1_btn.onmouseleave = function() {
   section1_btn.style.boxShadow = '0 0 1rem var(--main-color)';
   }
 
+
+
+
+
+  /* создание секции 2 */
+
+  let sectionSkills = document.querySelector('section.skills');
+  sectionSkills.style.backgroundColor = "var(--second-bg-color)";
+
+  let skills_Heading = document.createElement('h2');
+  skills_Heading.className = "heading";
+  skills_Heading.innerHTML = "Мои текущие навыки";
+  sectionSkills.insertAdjacentElement('afterbegin', skills_Heading);
+  skills_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+
+
+
+
+
+/* progress bar контейнер */
+
+
+  let skills_Container = document.createElement('div');
+  skills_Container.className = "skills-container";
+  skills_Container.style.cssText = "display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5rem;"
+  sectionSkills.insertAdjacentElement('beforeend', skills_Container);
+
+  
+
+
+
+let arrIcon=["bx bxl-html5", "bx bxl-css3", "bx bxl-git", "bx bxl-javascript"];
+let arrPoint=[90, 70, 50, 30];
+let arrLang=["HTML", "CSS", "Git/GitHub", "JavaScript"];
+let arrSkillBxClass=["skill-box1", "skill-box2", "skill-box3", "skill-box4"];
+
+  for(i = 0; i < arrIcon.length; i++) {
+
+    let percent = arrPoint[i] + "%" ;
+
+  let skills_Box = document.createElement('div');
+  skills_Box.className = arrSkillBxClass[i];
+  skills_Box.style.cssText = "flex: 1 1 15rem; background: var(--bg-color); padding: 3rem 2rem 4rem; border-radius: 2rem; text-align: center; border: 0.2rem solid var(--second-bg-color); transition: 0.5s ease;"
+  skills_Container.insertAdjacentElement('beforeend', skills_Box);
+  skills_Box.onmouseover = function() {
+    skills_Box.style.borderColor = 'var(--main-color)';
+    skills_Box.style.transform = 'scale(1.1)';
+  }
+  skills_Box.onmouseleave = function() {
+  skills_Box.style.borderColor = 'var(--bg-color)';
+  skills_Box.style.transform = 'none';
+    }
+
+
+  let skills_Icon = document.createElement('i');
+  skills_Icon.className = arrIcon[i];
+  skills_Icon.style.cssText = "font-size: 8rem; color: var(--main-color)";
+  skills_Box.insertAdjacentElement('afterbegin', skills_Icon);
+
+  let progressBarOuter = document.createElement('div');
+  progressBarOuter.style.cssText = "background: conic-gradient(var(--main-color) calc("+ arrPoint[i] +"*1%), var(--second-bg-color) 0deg);position: relative; width: 15rem; height: 15rem; border-radius: 50%;  margin: 3rem auto 3rem;"
+  skills_Box.insertAdjacentElement('beforeend', progressBarOuter);
+
+  let progressBarInner = document.createElement('div');
+  progressBarInner.className = "progressInner";
+  progressBarInner.style.cssText = "position: absolute; width: 12rem; height: 12rem; border-radius: 50%; color: var(--text-color); background-color: var(--bg-color); margin: 1.5rem";
+  progressBarOuter.insertAdjacentElement('beforeend', progressBarInner);
+
+  let progressBar_H3 = document.createElement('h3');
+  progressBar_H3.textContent = percent;
+  progressBar_H3.style.cssText = "position: center; font-size: 2.5rem; z-index: 1; font-weight: bold; margin: 4rem 0 0.1rem";
+  progressBarInner.insertAdjacentElement('beforeend', progressBar_H3);
+
+  let progressBar_H4 = document.createElement('h4');
+  progressBar_H4.textContent = arrLang[i];
+  progressBar_H4.style.cssText = "position: center;z-index: 1; font-weight: bold;  color: var(--main-color); margin: 0";
+  progressBarInner.insertAdjacentElement('beforeend', progressBar_H4);
+
+/* кнопка */
+
+  let progressBar_btn = document.createElement('a');
+progressBar_btn.setAttribute('href', '#');
+progressBar_btn.className = progressBar_btn;
+progressBar_btn.textContent = "Подробнее";
+progressBar_btn.style.cssText = "text-decoration: none; display: inline-block;padding: 1rem 2.8rem;background: var(--main-color);border-radius: 4rem;box-shadow: 0 0 1rem var(--main-color);font-size: 1.6rem;color: var(--second-bg-color);letter-spacing: 0.1rem;font-weight: bold;transition: 0.5s ease;";
+skills_Box.insertAdjacentElement('beforeend', progressBar_btn);
+
+progressBar_btn.onmouseover = function() {
+  progressBar_btn.style.boxShadow = '0 0 1.5rem var(--main-color)';
+}
+progressBar_btn.onmouseleave = function() {
+  progressBar_btn.style.boxShadow = '0 0 1rem var(--main-color)';
+  }
+
+  }
