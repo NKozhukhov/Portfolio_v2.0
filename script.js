@@ -374,15 +374,14 @@ icon_container.className = "icon_container";
 icon_container.style.cssText = "position: relative;left: -50%;width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;cursor: pointer;";
 roadmapBox.insertAdjacentElement('beforeend', icon_container);
 
-let arrIconBoxClass = ["icon_box1", "icon_box2", "icon_box3", "icon_box4", "icon_box5", "icon_box6", "icon_box7", "icon_box8", "icon_box9", "icon_box10"];
 let arrIconBoxAttr = ["content1","content2","content3","content4","content5","content6","content7","content8","content9","content10"];
 let arrIconBoxSrc = ["images/html.png","images/css.png","images/git.png","images/js.png","images/api.png","images/react.png","images/TS.png","images/node.png","images/mongodb.png","images/palette.png"];
 let arrIconBoxNum = [1,2,3,4,5,6,7,8,9,10];
 
-for(let i =0; i <arrIconBoxClass.length; i++){
+for(let i =0; i <arrIconBoxAttr.length; i++){
 
 let icon_box = document.createElement('div');
-icon_box.className = arrIconBoxClass[i];
+icon_box.className = "icon_box";
 icon_box.setAttribute('data-id' , arrIconBoxAttr[i]); 
 icon_box.style.cssText = "position: absolute;width: 5rem;height: 5rem;border-radius: 50%;transition: 0.5s ease;border: 0.1rem solid #fff;box-shadow: 0 0 0 0.4rem var(--second-bg-color), 0 0 0 0.6rem #fff;transform: rotate(calc(360deg / 10 * "+ arrIconBoxNum[i] +"));z-index: 9;transform-origin: 25rem;";
 icon_container.insertAdjacentElement('beforeend', icon_box);
@@ -392,3 +391,50 @@ roadmapImg.src = arrIconBoxSrc[i];
 roadmapImg.style.cssText = "position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;object-fit: cover;transform: rotate(calc(-360deg / 10 * "+ arrIconBoxNum[i] +"));transition: 0.5s ease;filter: grayscale(1);"
 icon_box.insertAdjacentElement('afterbegin', roadmapImg);
 }
+
+/* content box */
+
+let content_container = document.createElement('div');
+content_container.className = "content_container";
+content_container.style.cssText = "";
+roadmapBox.insertAdjacentElement('beforeend', content_container);
+
+
+let textCont = ["HTML","CSS","Git/GitHub","JavaScript","API","React","TypeScript","Node.js","MongoDB","Design"];
+let iconBoxImgSrc = ["images/html.png","images/css.png","images/git.png","images/js.png","images/api.png","images/react.png","images/TS.png","images/node.png","images/mongodb.png","images/palette.png"];
+
+for (let i = 0; i<textCont.length; i++){
+
+let content_box = document.createElement('div');
+content_box.className = "content_box";
+content_box.style.cssText = "";
+content_container.insertAdjacentElement('beforeend', content_box);
+
+let content_card = document.createElement('div');
+content_card.className = "card";
+content_card.style.cssText = "";
+content_box.insertAdjacentElement('beforeend', content_card); 
+
+let content_card_icon_box = document.createElement('div');
+content_card_icon_box.className = "icon_box";
+content_card_icon_box.style.cssText = "";
+content_card.insertAdjacentElement('beforeend', content_card_icon_box); 
+
+let icon_box_img =document.createElement("img");
+icon_box_img.src = iconBoxImgSrc[i];
+icon_box_img.style.cssText = "width: 5rem";
+content_card_icon_box.insertAdjacentElement('beforeend', icon_box_img);
+
+let icon_box_text_box = document.createElement('div');
+icon_box_text_box.style.cssText = "";
+content_card_icon_box.insertAdjacentElement('beforeend', icon_box_text_box); 
+
+let icon_box_text = document.createElement('h3');
+icon_box_text.textContent = textCont[i];
+icon_box_text.style.cssText = "";
+icon_box_text_box.insertAdjacentElement('beforeend', icon_box_text); 
+
+}
+
+
+
