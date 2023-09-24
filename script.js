@@ -383,7 +383,7 @@ for(let i =0; i <arrIconBoxAttr.length; i++){
 let icon_box = document.createElement('div');
 icon_box.className = "icon_box";
 icon_box.setAttribute('data-id' , arrIconBoxAttr[i]); 
-icon_box.style.cssText = "position: absolute;width: 5rem;height: 5rem;border-radius: 50%;transition: 0.5s ease;border: 0.1rem solid #fff;box-shadow: 0 0 0 0.4rem var(--second-bg-color), 0 0 0 0.6rem #fff;transform: rotate(calc(360deg / 10 * "+ arrIconBoxNum[i] +"));z-index: 9;transform-origin: 25rem;";
+icon_box.style.cssText = "position: absolute;width: 5rem;height: 5rem;border-radius: 50%;transition: 0.5s ease;border: 0.1rem solid #fff;box-shadow: 0 0 0 0.4rem var(--bg-color), 0 0 0 0.6rem #fff;transform: rotate(calc(360deg / 10 * "+ arrIconBoxNum[i] +"));z-index: 9;transform-origin: 25rem;";
 icon_container.insertAdjacentElement('beforeend', icon_box);
 
 let roadmapImg =document.createElement("img");
@@ -392,11 +392,14 @@ roadmapImg.style.cssText = "position: absolute;top: 0;left: 0;width: 100%;height
 icon_box.insertAdjacentElement('afterbegin', roadmapImg);
 }
 
+let icon_box_active = document.querySelector('[data-id="content1"]');
+icon_box_active.className = "icon_box active";
+
 /* content box */
 
 let content_container = document.createElement('div');
 content_container.className = "content_container";
-content_container.style.cssText = "";
+content_container.style.cssText = "position: absolute;inset: 0;overflow: hidden;display: flex;justify-content: center;align-items: center;";
 roadmapBox.insertAdjacentElement('beforeend', content_container);
 
 
@@ -407,34 +410,99 @@ for (let i = 0; i<textCont.length; i++){
 
 let content_box = document.createElement('div');
 content_box.className = "content_box";
-content_box.style.cssText = "";
+content_box.id = arrIconBoxAttr[i]; 
+content_box.style.cssText = "position: absolute;transform: scale(0);transition: 0.3s;opacity: 0;display: flex;justify-content: center;align-items: center;";
 content_container.insertAdjacentElement('beforeend', content_box);
 
 let content_card = document.createElement('div');
 content_card.className = "card";
-content_card.style.cssText = "";
+content_card.style.cssText = "position: relative;display: flex;justify-content: center;align-items: center;flex-direction: column;gap: 2rem;";
 content_box.insertAdjacentElement('beforeend', content_card); 
 
 let content_card_icon_box = document.createElement('div');
 content_card_icon_box.className = "icon_box";
-content_card_icon_box.style.cssText = "";
+content_card_icon_box.style.cssText = "display: flex;justify-content: center;align-items: center;flex-direction: column;width: 20rem;height: 20rem;border-radius: 1rem;overflow: hidden;";
 content_card.insertAdjacentElement('beforeend', content_card_icon_box); 
 
 let icon_box_img =document.createElement("img");
 icon_box_img.src = iconBoxImgSrc[i];
-icon_box_img.style.cssText = "width: 5rem";
+icon_box_img.style.cssText = "position: relative;top: 2rem;left: 0;width: 80%;height: 80%;object-fit: cover;";
 content_card_icon_box.insertAdjacentElement('beforeend', icon_box_img);
 
 let icon_box_text_box = document.createElement('div');
-icon_box_text_box.style.cssText = "";
+icon_box_text_box.style.cssText = "display: flex;justify-content: center;align-items: center;flex-direction: column;margin-top: 2rem;";
 content_card_icon_box.insertAdjacentElement('beforeend', icon_box_text_box); 
 
 let icon_box_text = document.createElement('h3');
 icon_box_text.textContent = textCont[i];
-icon_box_text.style.cssText = "";
+icon_box_text.style.cssText = "position: relative;font-size: 2.5rem;font-weight: bold;color: var(--main-color);line-height: 1rem;text-transform: uppercase;text-align: center;";
 icon_box_text_box.insertAdjacentElement('beforeend', icon_box_text); 
 
 }
 
+let content_box_active = document.querySelector("#content1");
+content_box_active.className = "content_box active";
 
+
+/* переключение класса Active по наведению мышки на ярлыки */
+
+let iconBx = document.querySelectorAll(".icon_box");
+let contentBx = document.querySelectorAll(".content_box");
+
+
+for (let i = 0; i < iconBx.length; i++) {
+
+  iconBx[i].addEventListener("mouseover", function () {
+
+    for (let i = 0; i < contentBx.length; i++) {
+      contentBx[i].className = "content_box";
+    }
+
+    document.getElementById(this.dataset.id).className = "content_box active";
+
+    let contentBxActive = document.querySelector('.content_box.active');
+contentBxActive.style.transform = "scale(1)"; 
+contentBxActive.style.opacity = "1"; 
+contentBxActive.style.transitionDelay = "0.3s"; 
+
+
+
+    for (let i = 0; i < iconBx.length; i++) {
+      iconBx[i].className = "icon_box";
+    }
+
+    this.className = "icon_box active";
+    
+    let IconBxActive = document.querySelector('.icon_box.active');
+IconBxActive.style.boxShadow = "0 0 0 0.4rem var(--bg-color), 0 0 0 1rem var(--main-color)";
+let IconBxImgActive = document.querySelector('.icon_box.active img');
+IconBxImgActive.style.filter = "grayscale(0)"; 
+
+  });
+
+
+  iconBx[i].addEventListener("mouseleave", function () {
+    for (let i = 0; i < contentBx.length; i++) {
+      contentBx[i].className = "content_box";
+    }
+    document.getElementById(this.dataset.id).className = "content_box active";
+    let contentBxActive = document.querySelector('.content_box.active');
+  contentBxActive.style.transform = "scale(0)"; 
+  contentBxActive.style.opacity = "0"; 
+  contentBxActive.style.transitionDelay = "none"; 
+
+  for (let i = 0; i < iconBx.length; i++) {
+    iconBx[i].className = "icon_box";
+  }
+  this.className = "icon_box active";
+  let IconBxActive = document.querySelector('.icon_box.active');
+IconBxActive.style.boxShadow = "0 0 0 0.4rem var(--bg-color), 0 0 0 0.6rem var(--text-color)";
+let IconBxImgActive = document.querySelector('.icon_box.active img');
+IconBxImgActive.style.filter = "grayscale(1)"; 
+
+
+});
+
+
+}
 
