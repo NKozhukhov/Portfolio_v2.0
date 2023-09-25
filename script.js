@@ -654,7 +654,38 @@ inputBtn.onmouseleave = function() {
   inputBtn.style.boxShadow = '0 0 1rem var(--main-color)';
   }
 
+/* *************************************** */
 
 
+
+
+/* Footer сайта */
+
+let footer = document.createElement('footer');
+footer.className = "footer";
+footer.style.cssText = "";
+body.insertAdjacentElement('beforeend', footer); 
+
+let footer_text_box = document.createElement('div');
+footer_text_box.style.cssText = "";
+footer.insertAdjacentElement('afterbegin', footer_text_box); 
+
+let footer_text = document.createElement('p');
+footer_text.textContent = "Copyright &copy; 2023 by Me | All Rights Reserved.";
+footer_text.style.cssText = "";
+footer_text_box.insertAdjacentElement('afterbegin', footer_text); 
+
+let footer_icon_box = document.createElement('div');
+footer_icon_box.style.cssText = "";
+footer.insertAdjacentElement('beforeend', footer_icon_box); 
+
+let footer_icon = document.createElement('a');
+footer_icon.getAttribute = ("href", "#home");
+footer_icon.style.cssText = "";
+footer_icon_box.insertAdjacentElement('afterbegin', footer_icon); 
+
+let footer_icon_i = document.createElement('i');
+footer_icon_i.className = "bx bxs-up-arrow-circle";
+footer_icon.insertAdjacentElement('beforeend', footer_icon_i); 
 
 
