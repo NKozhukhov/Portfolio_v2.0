@@ -585,66 +585,47 @@ contacts_Heading.textContent = "Напиши мне!";
 contacts_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
 sectionContacts.insertAdjacentElement('afterbegin', contacts_Heading);
 
-
-/* <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Полное имя" />
-          <input type="email" placeholder="Почта" />
-        </div>
-        <div class="input-box">
-          <input type="number" placeholder="Номер телефона" />
-          <input type="text" placeholder="Дополнительная почта" />
-        </div>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Ваше сообщение"
-        ></textarea>
-        <input type="sumbit" value="Отправить" class="btn" />
-      </form> */
-
-
+/* *************************************** */
 
 let form = document.createElement("form");
 form.setAttribute('action', "#"); 
+form.style.cssText = "max-width: 70rem;margin: 1rem auto 3rem;text-align: center;";
 sectionContacts.insertAdjacentElement('beforeend', form);
 
 /* *************************************** */
 
 let inputBox1 = document.createElement('div');
 inputBox1.className = "input_box";
-inputBox1.style.cssText = "";
+inputBox1.style.cssText = "display: flex;justify-content: space-between;flex-wrap: wrap;";
 form.insertAdjacentElement('beforeend', inputBox1);
 
 let inputName = document.createElement('input');
 inputName.setAttribute('type', "text"); 
 inputName.setAttribute('placeholder', "Полное имя"); 
-inputName.style.cssText = "";
+inputName.style.cssText = "border: none;width: 45%;padding: 1.5rem;font-size: 1.6rem;color: var(--text-color);background: var(--second-bg-color);border-radius: 0.8rem;margin: 0.7rem 0;";
 inputBox1.insertAdjacentElement('beforeend', inputName);
 let inputEmail = document.createElement('input');
 inputEmail.setAttribute('type', "email"); 
 inputEmail.setAttribute('placeholder', "Почта"); 
-inputEmail.style.cssText = "";
+inputEmail.style.cssText = "border: none;width: 45%;padding: 1.5rem;font-size: 1.6rem;color: var(--text-color);background: var(--second-bg-color);border-radius: 0.8rem;margin: 0.7rem 0;";;
 inputBox1.insertAdjacentElement('beforeend', inputEmail);
 
 /* *************************************** */
 
 let inputBox2 = document.createElement('div');
 inputBox2.className = "input_box";
-inputBox2.style.cssText = "";
+inputBox2.style.cssText = "display: flex;justify-content: space-between;flex-wrap: wrap;";
 form.insertAdjacentElement('beforeend', inputBox2);
 
 let inputNumber = document.createElement('input');
-inputNumber.setAttribute('type', "number"); 
+inputNumber.setAttribute('type', "text"); 
 inputNumber.setAttribute('placeholder', "Номер телефона"); 
-inputNumber.style.cssText = "";
+inputNumber.style.cssText = "border: none;width: 45%;padding: 1.5rem;font-size: 1.6rem;color: var(--text-color);background: var(--second-bg-color);border-radius: 0.8rem;margin: 0.7rem 0;";;
 inputBox2.insertAdjacentElement('beforeend', inputNumber);
 let inputSecondEmail = document.createElement('input');
 inputSecondEmail.setAttribute('type', "text"); 
 inputSecondEmail.setAttribute('placeholder', "Дополнительная почта"); 
-inputSecondEmail.style.cssText = "";
+inputSecondEmail.style.cssText = "border: none;width: 45%;padding: 1.5rem;font-size: 1.6rem;color: var(--text-color);background: var(--second-bg-color);border-radius: 0.8rem;margin: 0.7rem 0;";;
 inputBox2.insertAdjacentElement('beforeend', inputSecondEmail);
 
 /* *************************************** */
@@ -655,13 +636,25 @@ textArea.setAttribute('id', "");
 textArea.setAttribute('cols', "30"); 
 textArea.setAttribute('rows', "10"); 
 textArea.setAttribute('placeholder', "Ваше сообщение"); 
-textArea.style.cssText = "";
+textArea.style.cssText = "border: none; resize: none; width: 95%;padding: 1.5rem;font-size: 1.6rem;color: var(--text-color);background: var(--second-bg-color);border-radius: 0.8rem;margin: 0.7rem 0";
 form.insertAdjacentElement('beforeend', textArea);
 
 /* *************************************** */
 
-let inputBtn = document.createElement('input');
-inputBtn.setAttribute('type', "sumbit"); 
-inputBtn.setAttribute('value', "Отправить"); 
-inputBtn.style.cssText = "";
+let inputBtn = document.createElement('a');
+inputBtn.setAttribute('href', '#contacts');
+inputBtn.textContent = "Отправить";
+inputBtn.style.cssText = "margin-top: 2rem; text-decoration: none; display: inline-block;padding: 1rem 4rem;background: var(--main-color);border-radius: 4rem;box-shadow: 0 0 1rem var(--main-color);font-size: 1.6rem;color: var(--second-bg-color);letter-spacing: 0.1rem;font-weight: bold;transition: 0.5s ease;";
 form.insertAdjacentElement('beforeend', inputBtn);
+
+inputBtn.onmouseover = function() {
+  inputBtn.style.boxShadow = '0 0 1.5rem var(--main-color)';
+}
+inputBtn.onmouseleave = function() {
+  inputBtn.style.boxShadow = '0 0 1rem var(--main-color)';
+  }
+
+
+
+
+
