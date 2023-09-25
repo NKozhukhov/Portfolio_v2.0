@@ -403,6 +403,22 @@ content_container.style.cssText = "position: absolute;inset: 0;overflow: hidden;
 roadmapBox.insertAdjacentElement('beforeend', content_container);
 
 
+/* крутщиеся полоски */
+
+let content_container_rotate = document.createElement('div');
+content_container_rotate.className = "rotate";
+content_container_rotate.style.cssText = "position: absolute;inset: 6rem;border: 0.4rem solid transparent;border-left: 0.4rem solid var(--blue-color);border-right: 0.4rem solid var(--peach-color);border-radius: 50%;z-index: 1;pointer-events: none";
+content_container.insertAdjacentElement('beforeend', content_container_rotate);
+
+content_container_rotate.animate([
+  { transform: 'rotate(0deg)' },
+  { transform: 'rotate(360deg)' }
+], {
+  duration: 3000,
+  iterations: Infinity
+});
+
+
 let textCont = ["HTML","CSS","Git/GitHub","JavaScript","API","React","TypeScript","Node.js","MongoDB","Design"];
 let iconBoxImgSrc = ["images/html.png","images/css.png","images/git.png","images/js.png","images/api.png","images/react.png","images/TS.png","images/node.png","images/mongodb.png","images/palette.png"];
 
@@ -472,7 +488,7 @@ contentBxActive.style.transitionDelay = "0.3s";
     }
 
     this.className = "icon_box active";
-    
+
     let IconBxActive = document.querySelector('.icon_box.active');
 IconBxActive.style.boxShadow = "0 0 0 0.4rem var(--bg-color), 0 0 0 1rem var(--main-color)";
 let IconBxImgActive = document.querySelector('.icon_box.active img');
@@ -506,3 +522,37 @@ IconBxImgActive.style.filter = "grayscale(1)";
 
 }
 
+
+/* ярлыки и фишка  */
+
+let marks = document.createElement('div');
+roadmapBox.insertAdjacentElement('afterbegin', marks);
+
+let mark = document.createElement('img');
+mark.src = 'images/checkmark.png'
+mark.style.cssText = "position: absolute;z-index: 11;width: 4rem;height: 4rem;top: 3.5rem; left: 0";
+marks.insertAdjacentElement('beforeend', mark);
+
+let mark2 = document.createElement('img');
+mark2.src = 'images/checkmark.png'
+mark2.style.cssText = "position: absolute;z-index: 11;width: 4rem;height: 4rem;top: -4.5rem;left: 11rem;";
+marks.insertAdjacentElement('beforeend', mark2);
+
+let mark3 = document.createElement('img');
+mark3.src = 'images/checkmark.png'
+mark3.style.cssText = "position: absolute;z-index: 11;width: 4rem;height: 4rem;top: -5rem;left: 26rem;";
+marks.insertAdjacentElement('beforeend', mark3);
+
+let chip = document.createElement('img');
+chip.src = 'images/chip.png'
+chip.style.cssText = "position: absolute;z-index: 11;width: auto;height: 8rem;top: -4rem;left: 38rem;";
+marks.insertAdjacentElement('beforeend', chip);
+
+chip.animate([
+  { transform: 'translateY(0)' },
+  { transform: 'translateY(2rem)' },
+  { transform: 'translateY(0)' },
+], {
+  duration: 2000,
+  iterations: Infinity
+});
