@@ -569,3 +569,99 @@ portfolio_Heading.className = "heading";
 portfolio_Heading.textContent = "тут будет API";
 sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
 portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+
+
+
+
+
+
+/* секция 5. Контакты */
+
+let sectionContacts = document.querySelector('section.contacts');
+
+let contacts_Heading = document.createElement('h2');
+contacts_Heading.className = "heading";
+contacts_Heading.textContent = "Напиши мне!";
+contacts_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+sectionContacts.insertAdjacentElement('afterbegin', contacts_Heading);
+
+
+/* <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Полное имя" />
+          <input type="email" placeholder="Почта" />
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Номер телефона" />
+          <input type="text" placeholder="Дополнительная почта" />
+        </div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Ваше сообщение"
+        ></textarea>
+        <input type="sumbit" value="Отправить" class="btn" />
+      </form> */
+
+
+
+let form = document.createElement("form");
+form.setAttribute('action', "#"); 
+sectionContacts.insertAdjacentElement('beforeend', form);
+
+/* *************************************** */
+
+let inputBox1 = document.createElement('div');
+inputBox1.className = "input_box";
+inputBox1.style.cssText = "";
+form.insertAdjacentElement('beforeend', inputBox1);
+
+let inputName = document.createElement('input');
+inputName.setAttribute('type', "text"); 
+inputName.setAttribute('placeholder', "Полное имя"); 
+inputName.style.cssText = "";
+inputBox1.insertAdjacentElement('beforeend', inputName);
+let inputEmail = document.createElement('input');
+inputEmail.setAttribute('type', "email"); 
+inputEmail.setAttribute('placeholder', "Почта"); 
+inputEmail.style.cssText = "";
+inputBox1.insertAdjacentElement('beforeend', inputEmail);
+
+/* *************************************** */
+
+let inputBox2 = document.createElement('div');
+inputBox2.className = "input_box";
+inputBox2.style.cssText = "";
+form.insertAdjacentElement('beforeend', inputBox2);
+
+let inputNumber = document.createElement('input');
+inputNumber.setAttribute('type', "number"); 
+inputNumber.setAttribute('placeholder', "Номер телефона"); 
+inputNumber.style.cssText = "";
+inputBox2.insertAdjacentElement('beforeend', inputNumber);
+let inputSecondEmail = document.createElement('input');
+inputSecondEmail.setAttribute('type', "text"); 
+inputSecondEmail.setAttribute('placeholder', "Дополнительная почта"); 
+inputSecondEmail.style.cssText = "";
+inputBox2.insertAdjacentElement('beforeend', inputSecondEmail);
+
+/* *************************************** */
+
+let textArea = document.createElement('textarea');
+textArea.setAttribute('name', ""); 
+textArea.setAttribute('id', ""); 
+textArea.setAttribute('cols', "30"); 
+textArea.setAttribute('rows', "10"); 
+textArea.setAttribute('placeholder', "Ваше сообщение"); 
+textArea.style.cssText = "";
+form.insertAdjacentElement('beforeend', textArea);
+
+/* *************************************** */
+
+let inputBtn = document.createElement('input');
+inputBtn.setAttribute('type', "sumbit"); 
+inputBtn.setAttribute('value', "Отправить"); 
+inputBtn.style.cssText = "";
+form.insertAdjacentElement('beforeend', inputBtn);
