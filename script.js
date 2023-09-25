@@ -654,7 +654,47 @@ inputBtn.onmouseleave = function() {
   inputBtn.style.boxShadow = '0 0 1rem var(--main-color)';
   }
 
+/* *************************************** */
 
 
+
+
+/* Footer сайта */
+
+let footer = document.createElement('footer');
+footer.className = "footer";
+footer.style.cssText = "background: var(--second-bg-color);display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap;padding: 2rem 5%;";
+body.insertAdjacentElement('beforeend', footer); 
+
+let footer_text_box = document.createElement('div');
+footer_text_box.style.cssText = "";
+footer.insertAdjacentElement('afterbegin', footer_text_box); 
+
+let footer_text = document.createElement('p');
+footer_text.textContent = "Copyright &copy; 2023 by Me | All Rights Reserved.";
+footer_text.style.cssText = "font-size: 1.6rem;";
+footer_text_box.insertAdjacentElement('afterbegin', footer_text); 
+
+let footer_icon_box = document.createElement('div');
+footer_icon_box.style.cssText = "";
+footer.insertAdjacentElement('beforeend', footer_icon_box); 
+
+let footer_icon = document.createElement('a');
+footer_icon.setAttribute('href', '#home');
+footer_icon.style.cssText = "text-decoration: none; display: inline-flex;justify-content: center;align-items: center;padding: 0.8rem;background: var(--main-color);border-radius: 0.8rem;transition: 0.5s ease;";
+footer_icon_box.insertAdjacentElement('afterbegin', footer_icon); 
+
+footer_icon.onmouseover = function() {
+  footer_icon.style.boxShadow = '0 0 1rem var(--main-color)';
+}
+footer_icon.onmouseleave = function() {
+  footer_icon.style.boxShadow = 'none';
+  } 
+
+
+let footer_icon_i = document.createElement('i');
+footer_icon_i.className = "bx bxs-up-arrow-circle";
+footer_icon_i.style.cssText = "font-size: 3.4rem;color: var(--second-bg-color);";
+footer_icon.insertAdjacentElement('beforeend', footer_icon_i); 
 
 
