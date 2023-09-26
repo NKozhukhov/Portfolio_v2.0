@@ -46,13 +46,14 @@ header.insertAdjacentElement('beforeend', nav);
 
 /* список навигации */
 
+let arrHref = ["#home", "#skills", "#roadmap", "#portfolio", "#contacts"];
 let arrId = ["home", "skills", "roadmap", "portfolio", "contacts"];
 let arrValue = ["В начало", "Мои навыки", "Мои планы", "Портфолио", "Контакты"];
-for(let i =0; i < arrId.length; i++) {
+for(let i =0; i < arrHref.length; i++) {
 let navA = document.createElement('a');
-navA.id = arrId[i];
+navA.setAttribute('href', arrHref[i]);
 navA.textContent = arrValue[i];
-navA.style.cssText = "font-size: 1.7rem; font-weight: bold; color: var(--text-color); margin-left: 4rem; transition: 0.3s; cursor: pointer;";
+navA.style.cssText = "text-decoration: none;font-size: 1.7rem; font-weight: bold; color: var(--text-color); margin-left: 4rem; transition: 0.3s; cursor: pointer;";
 nav.insertAdjacentElement('beforeend', navA);
 
 /* изменение цвета при наведении */
@@ -257,7 +258,7 @@ section1_btn.onmouseleave = function() {
   skills_Heading.className = "heading";
   skills_Heading.innerHTML = "Мои текущие навыки";
   sectionSkills.insertAdjacentElement('afterbegin', skills_Heading);
-  skills_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+  skills_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:5rem 0 10rem; color: var(--main-color)";
 
 
 
@@ -351,7 +352,7 @@ progressBar_btn.onmouseleave = function() {
 let roadmapHeading = document.createElement('h2');
 roadmapHeading.className = "roadmapHeading";
 roadmapHeading.textContent = "Моя дорожная карта";
-roadmapHeading.style.cssText = "text-align: center;  font-size: 5rem; margin-bottom: 9rem";
+roadmapHeading.style.cssText = "text-align: center;  font-size: 5rem; margin-bottom: 11rem";
 sectionRoadmap.insertAdjacentElement('afterbegin', roadmapHeading);
 
 let roadmapContainer = document.createElement('div');
@@ -582,7 +583,7 @@ let sectionContacts = document.querySelector('section.contacts');
 let contacts_Heading = document.createElement('h2');
 contacts_Heading.className = "heading";
 contacts_Heading.textContent = "Напиши мне!";
-contacts_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+contacts_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:6rem 0 8rem; color: var(--main-color)";
 sectionContacts.insertAdjacentElement('afterbegin', contacts_Heading);
 
 /* *************************************** */
@@ -696,5 +697,29 @@ let footer_icon_i = document.createElement('i');
 footer_icon_i.className = "bx bxs-up-arrow-circle";
 footer_icon_i.style.cssText = "font-size: 3.4rem;color: var(--second-bg-color);";
 footer_icon.insertAdjacentElement('beforeend', footer_icon_i); 
+
+
+
+
+/* скроллинг страницы */
+
+let sections = document.querySelectorAll("section");
+let navLinks = document.querySelectorAll(" header nav a");
+
+window.onscroll = () => {
+  sections.forEach((sec) => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
+
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach((links) => {
+        links.classList.remove("active");
+        document.querySelector("header nav a[href*=" + id + "]").classList.add("active");
+      });
+    }
+  });
+};
 
 
