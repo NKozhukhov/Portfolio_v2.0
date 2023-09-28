@@ -744,3 +744,48 @@ apiCont.insertAdjacentElement('beforeend', apiBox);
 
 //*******************************************************************  */ 
 
+let apiWeather = document.querySelector(".weather");
+
+let apiWeather_heading = document.createElement('h3');
+apiWeather_heading.textContent = "API. Weather.";
+apiWeather_heading.style.cssText = "text-align: center; font-size: 3rem; margin:0 0 4rem; color: var(--main-color)";
+apiWeather.insertAdjacentElement('beforeend', apiWeather_heading);
+
+let apiWeather_box = document.createElement('div');
+apiWeather_box.className = 'apiMapBx';
+apiWeather_box.style.cssText = "";
+apiWeather.insertAdjacentElement('beforeend', apiWeather_box);
+
+let p_weatherClass = ["city", "date", "temperature", "status"];
+
+for(let i =0; i< p_weatherClass.length; i++){
+
+let p_weather = document.createElement('p');
+p_weather.className = p_weatherClass[i];
+p_weather.style.cssText = "";
+apiWeather_box.insertAdjacentElement('beforeend', p_weather);
+}
+let aaa = document.querySelector(".date");
+let p_weather_icon = document.createElement('div');
+p_weather_icon.className = "weatherIcon";
+p_weather_icon.style.cssText = "";
+aaa.insertAdjacentElement('afterend', p_weather_icon);
+
+let date = new Date();
+let month = date.toLocaleString('en-IN', { month: 'long' });
+let day = date.getUTCDate();
+let newdate = month + ", " + day;
+
+fetch('https://api.openweathermap.org/data/2.5/weather?q=moscow,ru&appid=cd4ba4b6c271c357674c856245416fbe')
+.then(function(resp) {return resp.json()})
+.then(function(data) {
+  
+document.querySelector(".city").textContent = data.name;
+document.querySelector(".date").textContent = newdate; 
+document.querySelector(".weatherIcon").innerHTML = '<img src ="https://openweathermap.org/img/wn/03d@2x.png">';
+document.querySelector(".temperature").innerHTML = Math.round(data.main.temp - 273) + "&deg;";
+document.querySelector(".status").textContent = data.weather[0]['description'];
+})
+.catch(function(){
+
+}); 
