@@ -727,11 +727,12 @@ portfolio_Heading.textContent = "тут будет API";
 sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
 portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
 
-//******************************************************************* */
-
 let apiCont = document.createElement('div');
 apiCont.style.cssText = "";
 sectionPortfolio.insertAdjacentElement('beforeend', apiCont);
+
+//******************************************************************* */
+
 
 let arrApiName = ["weather", "map", "youtube", "photo"];
 
@@ -751,18 +752,37 @@ apiWeather_heading.textContent = "API. Weather.";
 apiWeather_heading.style.cssText = "text-align: center; font-size: 3rem; margin:0 0 4rem; color: var(--main-color)";
 apiWeather.insertAdjacentElement('beforeend', apiWeather_heading);
 
+let apiWeather_cont = document.createElement('div');
+apiWeather_cont.className = 'apiWeather_cont';
+apiWeather_cont.style.cssText = `display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 2rem;`
+apiWeather.insertAdjacentElement('beforeend', apiWeather_cont);
+
 let apiWeather_box = document.createElement('div');
 apiWeather_box.className = 'apiMapBx';
-apiWeather_box.style.cssText = "";
-apiWeather.insertAdjacentElement('beforeend', apiWeather_box);
+apiWeather_box.style.cssText = `text-align: center;
+flex: 1 1 20rem;
+background: var(--bg-color);
+padding: 3rem 2rem 4rem;
+border-radius: 2rem;
+border: 0.2rem solid var(--second-bg-color);
+transition: all 0.5s ease 0s;`
+apiWeather_cont.insertAdjacentElement('beforeend', apiWeather_box);
 
 let p_weatherClass = ["city", "date", "temperature", "status"];
+let p_weatherStyle = ["text-align: center; font-size: 2rem; margin:1rem 0 2rem; color: var(--main-color); font-weight: bold", 
+"text-align: center; font-size: 1.3rem; margin:0; color: var(--main-color)", 
+"text-align: center; font-size: 3rem; margin:0 0 1rem; color: var(--main-color)", 
+"text-align: center; font-size: 1.5rem; margin:0; color: var(--main-color)"];
 
 for(let i =0; i< p_weatherClass.length; i++){
 
 let p_weather = document.createElement('p');
 p_weather.className = p_weatherClass[i];
-p_weather.style.cssText = "";
+p_weather.style.cssText = p_weatherStyle[i];
 apiWeather_box.insertAdjacentElement('beforeend', p_weather);
 }
 let aaa = document.querySelector(".date");
