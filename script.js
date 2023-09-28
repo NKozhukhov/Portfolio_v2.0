@@ -4,7 +4,7 @@ let html = document.querySelector('html');
 html.style.cssText = "font-size: 62.5%; overflow-x: hidden; margin: 0; padding: 0; scroll-behavior: smooth; font-family: Kreadon, Arial, sans-serif;"
 
 let body = document.querySelector('body');
-body.style.cssText = "background-color: var(--bg-color); color: #fff; "
+body.style.cssText = "background-color: var(--bg-color); color: #fff; margin: 0;"
 
 
 /* Шрифты */
@@ -22,6 +22,8 @@ document.documentElement.style.setProperty('--blue-color', '#9dbfed');
 document.documentElement.style.setProperty('--violet-color', '#b79af4');
 document.documentElement.style.setProperty('--peach-color', '#eeab9b');
 document.documentElement.style.setProperty('--dark-color', '#383258');
+
+let script = document.querySelector('script');
 
 
 
@@ -72,7 +74,7 @@ for (let i = 0; i< arrId.length; i++ ){
     section.className = arrId[i];
   section.id = arrId[i];
   section.style.cssText = "box-sizing: border-box; min-height: 100vh; padding: 15rem 5% 2rem;"
-  body.insertAdjacentElement("beforeend", section);
+  script.insertAdjacentElement("beforebegin", section);
   
   }
 
@@ -560,21 +562,6 @@ chip.animate([
 
 
 
-/* имитация секции 4. Портфолио */
-
-let sectionPortfolio = document.querySelector('section.portfolio');
-sectionPortfolio.style.backgroundColor = "var(--second-bg-color)";
-
-let portfolio_Heading = document.createElement('h2');
-portfolio_Heading.className = "heading";
-portfolio_Heading.textContent = "тут будет API";
-sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
-portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
-
-
-
-
-
 
 /* секция 5. Контакты */
 
@@ -665,7 +652,7 @@ inputBtn.onmouseleave = function() {
 let footer = document.createElement('footer');
 footer.className = "footer";
 footer.style.cssText = "background: var(--second-bg-color);display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap;padding: 2rem 5%;";
-body.insertAdjacentElement('beforeend', footer); 
+script.insertAdjacentElement("beforebegin", footer); 
 
 let footer_text_box = document.createElement('div');
 footer_text_box.style.cssText = "";
@@ -722,4 +709,38 @@ window.onscroll = () => {
   });
 };
 
+
+
+
+//******************************************************************************* */
+
+
+/* Секция 4. Добавление API на сайт */
+
+
+let sectionPortfolio = document.querySelector('section.portfolio');
+sectionPortfolio.style.backgroundColor = "var(--second-bg-color)";
+
+let portfolio_Heading = document.createElement('h2');
+portfolio_Heading.className = "heading";
+portfolio_Heading.textContent = "тут будет API";
+sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
+portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+
+//******************************************************************* */
+
+let apiCont = document.createElement('div');
+apiCont.style.cssText = "";
+sectionPortfolio.insertAdjacentElement('beforeend', apiCont);
+
+let arrApiName = ["weather", "map", "youtube", "photo"];
+
+for(let i = 0; i < arrApiName.length; i++){
+let apiBox = document.createElement('div');
+apiBox.className = arrApiName[i]; 
+apiBox.style.cssText = "";
+apiCont.insertAdjacentElement('beforeend', apiBox);
+}
+
+//*******************************************************************  */ 
 
