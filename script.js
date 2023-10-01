@@ -725,7 +725,7 @@ sectionPortfolio.style.backgroundColor = "var(--second-bg-color)";
 
 let portfolio_Heading = document.createElement('h2');
 portfolio_Heading.className = "heading";
-portfolio_Heading.textContent = "тут будет API";
+portfolio_Heading.textContent = "API. Погода. Карта. Случайные фото";
 sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
 portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
 
