@@ -281,7 +281,7 @@ section1_btn.onmouseleave = function() {
 
 
 let arrIcon=["bx bxl-html5", "bx bxl-css3", "bx bxl-git", "bx bxl-javascript"];
-let arrPoint=[90, 70, 50, 30];
+let arrPoint=[90, 70, 50, 40];
 let arrLang=["HTML", "CSS", "Git/GitHub", "JavaScript"];
 let arrSkillBxClass=["skill-box1", "skill-box2", "skill-box3", "skill-box4"];
 
@@ -828,8 +828,7 @@ apiMap.style.cssText = `display:inline-block;
 justify-content: center;
 align-items: center;
 flex-wrap: wrap;
-gap: 2rem;
-margin-bottom: 10rem`;
+gap: 2rem;`;
 
 let apiMap_heading = document.createElement('h3');
 apiMap_heading.textContent = "API. Map.";
@@ -907,7 +906,7 @@ margin-bottom: 10rem`;
 
 let apiPhoto_heading = document.createElement('h3');
 apiPhoto_heading.textContent = "API. Photo.";
-apiPhoto_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 4rem; color: var(--main-color)";
+apiPhoto_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 0; color: var(--main-color)";
 apiPhoto.insertAdjacentElement('beforeend', apiPhoto_heading);
 
 let apiPhoto_Btn = document.createElement('button');
@@ -926,7 +925,7 @@ apiPhoto_Btn.onmouseleave = function() {
 
 let apiPhoto_Box = document.createElement('div');
 apiPhoto_Box.className = 'Photo_img';
-apiPhoto_Box.style.cssText = "max-width: 500px; height: auto; border: 1rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);border-radius: 3rem"
+apiPhoto_Box.style.cssText = "margin-top: -3rem;max-width: 500px; height: auto; border: 1rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);border-radius: 3rem"
 apiPhoto.insertAdjacentElement('beforeend', apiPhoto_Box);
 
 
