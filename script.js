@@ -654,7 +654,7 @@ inputBtn.onmouseleave = function() {
 let footer = document.createElement('footer');
 footer.className = "footer";
 footer.style.cssText = "background: var(--second-bg-color);display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap;padding: 2rem 5%;";
-script.insertAdjacentElement("beforebegin", footer); 
+positionX.insertAdjacentElement("beforebegin", footer); 
 
 let footer_text_box = document.createElement('div');
 footer_text_box.style.cssText = "";
@@ -842,12 +842,29 @@ apiMap.insertAdjacentElement('beforeend', apiap_cont);
 //************************************************** */
 
 
-        function init(){
+    function init(){
             let myMap = new ymaps.Map("map", {
                 center: [55.814427, 37.386324],
                 zoom: 14,
-                
+                controls: ['routeButtonControl']
             });
+
+let control = myMap.controls.get('routeButtonControl');
+
+let location = ymaps.geolocation.get();
+
+location.then(function(res) {
+  let locationText = res.geoObjects.get(0).properties.get('text');
+  console.log(locationText);
+
+  control.routePanel.state.set({
+    type: 'masstransit',
+    fromEnabled: true,
+    from: locationText,
+    toEnabled: true,
+    to: 'бульвар Строителей, 4к1'
+    });
+});
 
 let placemark = new ymaps.Placemark([55.814427, 37.386324],{},{
 iconLayout: 'default#image',
@@ -859,7 +876,7 @@ myMap.geoObjects.add(placemark);
 
 myMap.controls.remove('searchControl');
 
-            /* myMap.controls.remove('geolocationControl'); // удалить геолокацию
+         /* myMap.controls.remove('geolocationControl'); // удалить геолокацию
             myMap.controls.remove('searchControl'); // удалить поиск
             myMap.controls.remove('trafficControl'); // удалить контроль трафика
             myMap.controls.remove('typeSelector'); // удалить тип
@@ -868,6 +885,6 @@ myMap.controls.remove('searchControl');
             myMap.controls.remove('rulerControl'); // удалить контрол правил
             myMap.behaviors.disable(['scrollZoom']); // отключить скролл карты (опционально) */
 
-        }
+}
 
-ymaps.ready(init);
+ymaps.ready(init); 
