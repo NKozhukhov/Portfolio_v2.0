@@ -733,14 +733,15 @@ let apiCont = document.createElement('div');
 apiCont.style.cssText = `display: flex;
 justify-content: center;
 align-items: center;
-flex-wrap: wrap;
+
+flex-direction: column;
 gap: 2rem;`;
 sectionPortfolio.insertAdjacentElement('beforeend', apiCont);
 
-//******************************************************************* */
+//*************создание блоков API*************** */
 
 
-let arrApiName = ["weather", "map", "youtube", "photo"];
+let arrApiName = ["weather", "map", "photo"];
 
 for(let i = 0; i < arrApiName.length; i++){
 let apiBox = document.createElement('div');
@@ -749,7 +750,7 @@ apiBox.style.cssText = "";
 apiCont.insertAdjacentElement('beforeend', apiBox);
 }
 
-//*******************************************************************  */ 
+//*************************API. Weather***********************************  */ 
 
 let apiWeather = document.querySelector(".weather");
 apiWeather.style.cssText = "width: 50%;"
@@ -820,23 +821,25 @@ document.querySelector(".status").textContent = data.weather[0]['description'];
 
 
 
-//*******************************************************************  */ 
+//***************************  API. Map   ************************************  */ 
 
 let apiMap = document.querySelector(".map");
 apiMap.style.cssText = `display:inline-block;
 justify-content: center;
 align-items: center;
 flex-wrap: wrap;
-gap: 2rem;`;
+gap: 2rem;
+margin-bottom: 10rem`;
 
 let apiMap_heading = document.createElement('h3');
 apiMap_heading.textContent = "API. Map.";
 apiMap_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 4rem; color: var(--main-color)";
 apiMap.insertAdjacentElement('beforeend', apiMap_heading);
 
+
 let apiap_cont = document.createElement('div');
 apiap_cont.id = 'map';
-apiap_cont.style.cssText = "width: 800px; height: 500px;"
+apiap_cont.style.cssText = "width: 800px; height: 500px; border: 1rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);"
 apiMap.insertAdjacentElement('beforeend', apiap_cont);
 
 //************************************************** */
@@ -888,3 +891,66 @@ myMap.controls.remove('searchControl');
 }
 
 ymaps.ready(init); 
+
+
+
+//***************************  API. Photo   ************************************  */ 
+
+
+let apiPhoto = document.querySelector(".photo");
+apiPhoto.style.cssText = `display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 5rem;
+margin-bottom: 10rem`;
+
+let apiPhoto_heading = document.createElement('h3');
+apiPhoto_heading.textContent = "API. Photo.";
+apiPhoto_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 4rem; color: var(--main-color)";
+apiPhoto.insertAdjacentElement('beforeend', apiPhoto_heading);
+
+let apiPhoto_Btn = document.createElement('button');
+apiPhoto_Btn.className = 'Photo_Btn';
+apiPhoto_Btn.setAttribute('type', "button");
+apiPhoto_Btn.textContent = 'Следующая';
+apiPhoto_Btn.style.cssText = "background: var(--main-color);border-radius: 2rem;text-align: center; width: 16rem; height: 5rem; border: 0.2rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);font-size: 1.7rem;color: var(--dark-color);font-weight: bold;transition: 0.5s ease;"
+apiPhoto.insertAdjacentElement('beforeend', apiPhoto_Btn);
+
+apiPhoto_Btn.onmouseover = function() {
+  apiPhoto_Btn.style.boxShadow = '0 0 1.5rem var(--main-color)';
+}
+apiPhoto_Btn.onmouseleave = function() {
+  apiPhoto_Btn.style.boxShadow = '0 0 1rem var(--main-color)';
+  }
+
+let apiPhoto_Box = document.createElement('div');
+apiPhoto_Box.className = 'Photo_img';
+apiPhoto_Box.style.cssText = "max-width: 500px; height: auto; border: 1rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);border-radius: 3rem"
+apiPhoto.insertAdjacentElement('beforeend', apiPhoto_Box);
+
+
+let photoImg =document.createElement("img");
+photoImg.src = "https://images.dog.ceo/breeds/hound-ibizan/n02091244_5400.jpg";
+photoImg.style.cssText = "width: 100%; height: 100%";
+photoImg.style.boxSizing  = "border-box";
+apiPhoto_Box.insertAdjacentElement('afterbegin', photoImg);
+
+
+
+//************************************** */
+
+function fetchHandler () { 
+  fetch('https://dog.ceo/api/breeds/image/random')
+.then(function(resp) {return resp.json()})
+.then(function(data) {
+  photoImg.src = data.message
+})};
+
+
+apiPhoto_Btn.addEventListener('click', () => {
+
+  fetchHandler()
+});
+
+
