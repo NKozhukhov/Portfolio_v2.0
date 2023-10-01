@@ -69,12 +69,14 @@ navA.onmouseover = function() {
 
 /* создание секций в теле страницы */
 
+let positionX = document.querySelector('body script');
+
 for (let i = 0; i< arrId.length; i++ ){
     let section = document.createElement('section');
     section.className = arrId[i];
   section.id = arrId[i];
   section.style.cssText = "box-sizing: border-box; min-height: 100vh; padding: 15rem 5% 2rem;"
-  script.insertAdjacentElement("beforebegin", section);
+  positionX.insertAdjacentElement("beforebegin", section);
   
   }
 
@@ -728,7 +730,11 @@ sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
 portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
 
 let apiCont = document.createElement('div');
-apiCont.style.cssText = "";
+apiCont.style.cssText = `display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 2rem;`;
 sectionPortfolio.insertAdjacentElement('beforeend', apiCont);
 
 //******************************************************************* */
@@ -746,6 +752,7 @@ apiCont.insertAdjacentElement('beforeend', apiBox);
 //*******************************************************************  */ 
 
 let apiWeather = document.querySelector(".weather");
+apiWeather.style.cssText = "width: 50%;"
 
 let apiWeather_heading = document.createElement('h3');
 apiWeather_heading.textContent = "API. Weather.";
@@ -766,17 +773,18 @@ apiWeather_box.className = 'apiMapBx';
 apiWeather_box.style.cssText = `text-align: center;
 flex: 1 1 20rem;
 background: var(--bg-color);
-padding: 3rem 2rem 4rem;
+padding: 6rem 2rem 8rem;
 border-radius: 2rem;
 border: 0.2rem solid var(--second-bg-color);
-transition: all 0.5s ease 0s;`
+transition: all 0.5s ease 0s;
+box-shadow:0 0 1rem var(--main-color);`
 apiWeather_cont.insertAdjacentElement('beforeend', apiWeather_box);
 
 let p_weatherClass = ["city", "date", "temperature", "status"];
-let p_weatherStyle = ["text-align: center; font-size: 2rem; margin:1rem 0 2rem; color: var(--main-color); font-weight: bold", 
-"text-align: center; font-size: 1.3rem; margin:0; color: var(--main-color)", 
-"text-align: center; font-size: 3rem; margin:0 0 1rem; color: var(--main-color)", 
-"text-align: center; font-size: 1.5rem; margin:0; color: var(--main-color)"];
+let p_weatherStyle = ["text-align: center; font-size: 3.3rem; margin:1rem 0 2rem; color: var(--main-color); font-weight: bold", 
+"text-align: center; font-size: 2rem; margin:0; color: var(--main-color)", 
+"text-align: center; font-size: 5rem; margin:0 0 1rem; color: var(--main-color)", 
+"text-align: center; font-size: 2rem; margin:0; color: var(--main-color);font-weight: bold"];
 
 for(let i =0; i< p_weatherClass.length; i++){
 
@@ -792,11 +800,11 @@ p_weather_icon.style.cssText = "";
 aaa.insertAdjacentElement('afterend', p_weather_icon);
 
 let date = new Date();
-let month = date.toLocaleString('en-IN', { month: 'long' });
+let month = date.toLocaleString('ru-RU', { month: 'long' });
 let day = date.getUTCDate();
 let newdate = month + ", " + day;
 
-fetch('https://api.openweathermap.org/data/2.5/weather?q=moscow,ru&appid=cd4ba4b6c271c357674c856245416fbe')
+fetch('https://api.openweathermap.org/data/2.5/weather?q=moscow,ru&appid=cd4ba4b6c271c357674c856245416fbe&lang=ru')
 .then(function(resp) {return resp.json()})
 .then(function(data) {
   
@@ -808,4 +816,58 @@ document.querySelector(".status").textContent = data.weather[0]['description'];
 })
 .catch(function(){
 
-}); 
+});  
+
+
+
+//*******************************************************************  */ 
+
+let apiMap = document.querySelector(".map");
+apiMap.style.cssText = `display:inline-block;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 2rem;`;
+
+let apiMap_heading = document.createElement('h3');
+apiMap_heading.textContent = "API. Map.";
+apiMap_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 4rem; color: var(--main-color)";
+apiMap.insertAdjacentElement('beforeend', apiMap_heading);
+
+let apiap_cont = document.createElement('div');
+apiap_cont.id = 'map';
+apiap_cont.style.cssText = "width: 800px; height: 500px;"
+apiMap.insertAdjacentElement('beforeend', apiap_cont);
+
+//************************************************** */
+
+
+        function init(){
+            let myMap = new ymaps.Map("map", {
+                center: [55.814427, 37.386324],
+                zoom: 14,
+                
+            });
+
+let placemark = new ymaps.Placemark([55.814427, 37.386324],{},{
+iconLayout: 'default#image',
+iconImageHref: 'images/logo.png',
+iconImageSize: [40,40],
+iconImageOffset: [-30,-30]
+});
+myMap.geoObjects.add(placemark);
+
+myMap.controls.remove('searchControl');
+
+            /* myMap.controls.remove('geolocationControl'); // удалить геолокацию
+            myMap.controls.remove('searchControl'); // удалить поиск
+            myMap.controls.remove('trafficControl'); // удалить контроль трафика
+            myMap.controls.remove('typeSelector'); // удалить тип
+            myMap.controls.remove('fullscreenControl'); // удалить кнопку перехода в полноэкранный режим
+            myMap.controls.remove('zoomControl'); // удалить контрол зуммирования
+            myMap.controls.remove('rulerControl'); // удалить контрол правил
+            myMap.behaviors.disable(['scrollZoom']); // отключить скролл карты (опционально) */
+
+        }
+
+ymaps.ready(init);
