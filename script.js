@@ -4,7 +4,7 @@ let html = document.querySelector('html');
 html.style.cssText = "font-size: 62.5%; overflow-x: hidden; margin: 0; padding: 0; scroll-behavior: smooth; font-family: Kreadon, Arial, sans-serif;"
 
 let body = document.querySelector('body');
-body.style.cssText = "background-color: var(--bg-color); color: #fff; "
+body.style.cssText = "background-color: var(--bg-color); color: #fff; margin: 0;"
 
 
 /* Шрифты */
@@ -22,6 +22,8 @@ document.documentElement.style.setProperty('--blue-color', '#9dbfed');
 document.documentElement.style.setProperty('--violet-color', '#b79af4');
 document.documentElement.style.setProperty('--peach-color', '#eeab9b');
 document.documentElement.style.setProperty('--dark-color', '#383258');
+
+let script = document.querySelector('script');
 
 
 
@@ -67,12 +69,14 @@ navA.onmouseover = function() {
 
 /* создание секций в теле страницы */
 
+let positionX = document.querySelector('body script');
+
 for (let i = 0; i< arrId.length; i++ ){
     let section = document.createElement('section');
     section.className = arrId[i];
   section.id = arrId[i];
   section.style.cssText = "box-sizing: border-box; min-height: 100vh; padding: 15rem 5% 2rem;"
-  body.insertAdjacentElement("beforeend", section);
+  positionX.insertAdjacentElement("beforebegin", section);
   
   }
 
@@ -277,7 +281,7 @@ section1_btn.onmouseleave = function() {
 
 
 let arrIcon=["bx bxl-html5", "bx bxl-css3", "bx bxl-git", "bx bxl-javascript"];
-let arrPoint=[90, 70, 50, 30];
+let arrPoint=[90, 70, 50, 40];
 let arrLang=["HTML", "CSS", "Git/GitHub", "JavaScript"];
 let arrSkillBxClass=["skill-box1", "skill-box2", "skill-box3", "skill-box4"];
 
@@ -560,21 +564,6 @@ chip.animate([
 
 
 
-/* имитация секции 4. Портфолио */
-
-let sectionPortfolio = document.querySelector('section.portfolio');
-sectionPortfolio.style.backgroundColor = "var(--second-bg-color)";
-
-let portfolio_Heading = document.createElement('h2');
-portfolio_Heading.className = "heading";
-portfolio_Heading.textContent = "тут будет API";
-sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
-portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
-
-
-
-
-
 
 /* секция 5. Контакты */
 
@@ -665,7 +654,7 @@ inputBtn.onmouseleave = function() {
 let footer = document.createElement('footer');
 footer.className = "footer";
 footer.style.cssText = "background: var(--second-bg-color);display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap;padding: 2rem 5%;";
-body.insertAdjacentElement('beforeend', footer); 
+positionX.insertAdjacentElement("beforebegin", footer); 
 
 let footer_text_box = document.createElement('div');
 footer_text_box.style.cssText = "";
@@ -721,5 +710,246 @@ window.onscroll = () => {
     }
   });
 };
+
+
+
+
+//******************************************************************************* */
+
+
+/* Секция 4. Добавление API на сайт */
+
+
+let sectionPortfolio = document.querySelector('section.portfolio');
+sectionPortfolio.style.backgroundColor = "var(--second-bg-color)";
+
+let portfolio_Heading = document.createElement('h2');
+portfolio_Heading.className = "heading";
+portfolio_Heading.textContent = "API. Погода. Карта. Случайные фото";
+sectionPortfolio.insertAdjacentElement('afterbegin', portfolio_Heading);
+portfolio_Heading.style.cssText = "text-align: center; font-size: 5rem; margin:0 0 6rem; color: var(--text-color)";
+
+let apiCont = document.createElement('div');
+apiCont.style.cssText = `display: flex;
+justify-content: center;
+align-items: center;
+
+flex-direction: column;
+gap: 2rem;`;
+sectionPortfolio.insertAdjacentElement('beforeend', apiCont);
+
+//*************создание блоков API*************** */
+
+
+let arrApiName = ["weather", "map", "photo"];
+
+for(let i = 0; i < arrApiName.length; i++){
+let apiBox = document.createElement('div');
+apiBox.className = arrApiName[i]; 
+apiBox.style.cssText = "";
+apiCont.insertAdjacentElement('beforeend', apiBox);
+}
+
+//*************************API. Weather***********************************  */ 
+
+let apiWeather = document.querySelector(".weather");
+apiWeather.style.cssText = "width: 50%;"
+
+let apiWeather_heading = document.createElement('h3');
+apiWeather_heading.textContent = "API. Weather.";
+apiWeather_heading.style.cssText = "text-align: center; font-size: 3rem; margin:0 0 4rem; color: var(--main-color)";
+apiWeather.insertAdjacentElement('beforeend', apiWeather_heading);
+
+let apiWeather_cont = document.createElement('div');
+apiWeather_cont.className = 'apiWeather_cont';
+apiWeather_cont.style.cssText = `display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 2rem;`
+apiWeather.insertAdjacentElement('beforeend', apiWeather_cont);
+
+let apiWeather_box = document.createElement('div');
+apiWeather_box.className = 'apiMapBx';
+apiWeather_box.style.cssText = `text-align: center;
+flex: 1 1 20rem;
+background: var(--bg-color);
+padding: 6rem 2rem 8rem;
+border-radius: 2rem;
+border: 0.2rem solid var(--second-bg-color);
+transition: all 0.5s ease 0s;
+box-shadow:0 0 1rem var(--main-color);`
+apiWeather_cont.insertAdjacentElement('beforeend', apiWeather_box);
+
+let p_weatherClass = ["city", "date", "temperature", "status"];
+let p_weatherStyle = ["text-align: center; font-size: 3.3rem; margin:1rem 0 2rem; color: var(--main-color); font-weight: bold", 
+"text-align: center; font-size: 2rem; margin:0; color: var(--main-color)", 
+"text-align: center; font-size: 5rem; margin:0 0 1rem; color: var(--main-color)", 
+"text-align: center; font-size: 2rem; margin:0; color: var(--main-color);font-weight: bold"];
+
+for(let i =0; i< p_weatherClass.length; i++){
+
+let p_weather = document.createElement('p');
+p_weather.className = p_weatherClass[i];
+p_weather.style.cssText = p_weatherStyle[i];
+apiWeather_box.insertAdjacentElement('beforeend', p_weather);
+}
+let aaa = document.querySelector(".date");
+let p_weather_icon = document.createElement('div');
+p_weather_icon.className = "weatherIcon";
+p_weather_icon.style.cssText = "";
+aaa.insertAdjacentElement('afterend', p_weather_icon);
+
+let date = new Date();
+let month = date.toLocaleString('ru-RU', { month: 'long' });
+let day = date.getUTCDate();
+let newdate = month + ", " + day;
+
+fetch('https://api.openweathermap.org/data/2.5/weather?q=moscow,ru&appid=cd4ba4b6c271c357674c856245416fbe&lang=ru')
+.then(function(resp) {return resp.json()})
+.then(function(data) {
+  
+document.querySelector(".city").textContent = data.name;
+document.querySelector(".date").textContent = newdate; 
+document.querySelector(".weatherIcon").innerHTML = '<img src ="https://openweathermap.org/img/wn/03d@2x.png">';
+document.querySelector(".temperature").innerHTML = Math.round(data.main.temp - 273) + "&deg;";
+document.querySelector(".status").textContent = data.weather[0]['description'];
+})
+.catch(function(){
+
+});  
+
+
+
+//***************************  API. Map   ************************************  */ 
+
+let apiMap = document.querySelector(".map");
+apiMap.style.cssText = `display:inline-block;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 2rem;`;
+
+let apiMap_heading = document.createElement('h3');
+apiMap_heading.textContent = "API. Map.";
+apiMap_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 4rem; color: var(--main-color)";
+apiMap.insertAdjacentElement('beforeend', apiMap_heading);
+
+
+let apiap_cont = document.createElement('div');
+apiap_cont.id = 'map';
+apiap_cont.style.cssText = "width: 800px; height: 500px; border: 1rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);"
+apiMap.insertAdjacentElement('beforeend', apiap_cont);
+
+//************************************************** */
+
+
+    function init(){
+            let myMap = new ymaps.Map("map", {
+                center: [55.814427, 37.386324],
+                zoom: 14,
+                controls: ['routeButtonControl']
+            });
+
+let control = myMap.controls.get('routeButtonControl');
+
+let location = ymaps.geolocation.get();
+
+location.then(function(res) {
+  let locationText = res.geoObjects.get(0).properties.get('text');
+  console.log(locationText);
+
+  control.routePanel.state.set({
+    type: 'masstransit',
+    fromEnabled: true,
+    from: locationText,
+    toEnabled: true,
+    to: 'бульвар Строителей, 4к1'
+    });
+});
+
+let placemark = new ymaps.Placemark([55.814427, 37.386324],{},{
+iconLayout: 'default#image',
+iconImageHref: 'images/logo.png',
+iconImageSize: [40,40],
+iconImageOffset: [-30,-30]
+});
+myMap.geoObjects.add(placemark);
+
+myMap.controls.remove('searchControl');
+
+         /* myMap.controls.remove('geolocationControl'); // удалить геолокацию
+            myMap.controls.remove('searchControl'); // удалить поиск
+            myMap.controls.remove('trafficControl'); // удалить контроль трафика
+            myMap.controls.remove('typeSelector'); // удалить тип
+            myMap.controls.remove('fullscreenControl'); // удалить кнопку перехода в полноэкранный режим
+            myMap.controls.remove('zoomControl'); // удалить контрол зуммирования
+            myMap.controls.remove('rulerControl'); // удалить контрол правил
+            myMap.behaviors.disable(['scrollZoom']); // отключить скролл карты (опционально) */
+
+}
+
+ymaps.ready(init); 
+
+
+
+//***************************  API. Photo   ************************************  */ 
+
+
+let apiPhoto = document.querySelector(".photo");
+apiPhoto.style.cssText = `display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 5rem;
+margin-bottom: 10rem`;
+
+let apiPhoto_heading = document.createElement('h3');
+apiPhoto_heading.textContent = "API. Photo.";
+apiPhoto_heading.style.cssText = "text-align: center; font-size: 3rem; margin:10rem 0 0; color: var(--main-color)";
+apiPhoto.insertAdjacentElement('beforeend', apiPhoto_heading);
+
+let apiPhoto_Btn = document.createElement('button');
+apiPhoto_Btn.className = 'Photo_Btn';
+apiPhoto_Btn.setAttribute('type', "button");
+apiPhoto_Btn.textContent = 'Следующая';
+apiPhoto_Btn.style.cssText = "background: var(--main-color);border-radius: 2rem;text-align: center; width: 16rem; height: 5rem; border: 0.2rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);font-size: 1.7rem;color: var(--dark-color);font-weight: bold;transition: 0.5s ease;"
+apiPhoto.insertAdjacentElement('beforeend', apiPhoto_Btn);
+
+apiPhoto_Btn.onmouseover = function() {
+  apiPhoto_Btn.style.boxShadow = '0 0 1.5rem var(--main-color)';
+}
+apiPhoto_Btn.onmouseleave = function() {
+  apiPhoto_Btn.style.boxShadow = '0 0 1rem var(--main-color)';
+  }
+
+let apiPhoto_Box = document.createElement('div');
+apiPhoto_Box.className = 'Photo_img';
+apiPhoto_Box.style.cssText = "margin-top: -3rem;max-width: 500px; height: auto; border: 1rem solid var(--bg-color); box-shadow:0 0 1rem var(--main-color);border-radius: 3rem"
+apiPhoto.insertAdjacentElement('beforeend', apiPhoto_Box);
+
+
+let photoImg =document.createElement("img");
+photoImg.src = "https://images.dog.ceo/breeds/hound-ibizan/n02091244_5400.jpg";
+photoImg.style.cssText = "width: 100%; height: 100%";
+photoImg.style.boxSizing  = "border-box";
+apiPhoto_Box.insertAdjacentElement('afterbegin', photoImg);
+
+
+
+//************************************** */
+
+function fetchHandler () { 
+  fetch('https://dog.ceo/api/breeds/image/random')
+.then(function(resp) {return resp.json()})
+.then(function(data) {
+  photoImg.src = data.message
+})};
+
+
+apiPhoto_Btn.addEventListener('click', () => {
+
+  fetchHandler()
+});
 
 
