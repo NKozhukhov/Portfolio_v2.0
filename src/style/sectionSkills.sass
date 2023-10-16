@@ -1,0 +1,83 @@
+@import "./variables.sass"
+
+.skills
+    background-color: $second-bg-color
+
+.skills     
+    h2 
+        text-align: center
+        font-size: 5rem
+        margin-bottom: 8rem
+        margin-left: 8rem
+        color: $main-color
+
+
+.skills-container 
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    gap: 5rem
+
+
+.skills-container   
+    .skills-box 
+        flex: 1 1 15rem
+        background: $bg-color
+        padding: 3rem 2rem 4rem
+        border-radius: 2rem
+        text-align: center
+        border: 0.2rem solid $second-bg-color
+        transition: 0.5s ease
+
+
+.skills-container 
+    .skills-box:hover 
+        border-color: $main-color
+        transform: scale(1.02)
+
+
+.skills-box 
+    i 
+        font-size: 8rem
+        color: $main-color
+
+.outer
+    position: relative
+    width: 15rem
+    height: 15rem
+    border-radius: 50%
+    margin: 3rem auto 3rem
+    .inner
+        position: absolute
+        width: 12rem
+        height: 12rem
+        border-radius: 50%
+        color: $text-color
+        background-color: $bg-color
+        margin: 1.5rem
+        h3
+            position: center
+            font-size: 2.5rem
+            z-index: 1
+            font-weight: bold
+            margin: 4rem 0 0.1rem
+        h4
+            font-size: 1.8rem
+            position: center
+            z-index: 1
+            font-weight: bold
+            color: $main-color
+            margin: 0.5rem 0 0 0
+
+.outer90
+    background: conic-gradient($main-color calc(90*1%), $second-bg-color 0deg)
+
+.outer70
+    background: conic-gradient($main-color calc(70*1%), $second-bg-color 0deg)
+
+.outer50
+    background: conic-gradient($main-color calc(50*1%), $second-bg-color 0deg)
+
+.outer40
+    background: conic-gradient($main-color calc(40*1%), $second-bg-color 0deg)
