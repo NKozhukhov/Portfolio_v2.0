@@ -1,14 +1,37 @@
+@font-face
+    font-family: "Kreadon"
+    font-style: normal
+    font-weight: normal
+    src: local("Kreadon"), url("/fonts/regular_Kreadon.ttf") format("ttf")
+
+@font-face 
+    font-family: "Kreadon"
+    font-style: normal
+    font-weight: lighter
+    src: local("Kreadon"), url("/fonts/light_Kreadon.ttf") format("ttf")
+
+@font-face 
+    font-family: "Kreadon"
+    font-style: normal
+    font-weight: bold
+    src: local("Kreadon"), url("/fonts/bold_Kreadon.ttf") format("ttf")
+
 @import "./variables.sass"
     
 *
     margin: 0
     padding: 0
     box-sizing: border-box
+    text-decoration: none
+    border: none
+    outline: none
     scroll-behavior: smooth
+    font-family: "Kreadon", "Arial", sans-serif
 
 html
     font-size: 62.5%
     overflow-x: hidden
     
 body
-    background-color: $second-bg-color
+    background-color: $bg-color
+    color: $text-color
