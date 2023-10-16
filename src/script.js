@@ -534,17 +534,17 @@ let marks = document.createElement('div');
 roadmapBox.insertAdjacentElement('afterbegin', marks);
 
 let mark = document.createElement('img');
-mark.src = 'images/checkmark.png'
+mark.src = 'images/checkMark.png'
 mark.style.cssText = "position: absolute;z-index: 11;width: 4rem;height: 4rem;top: 3.5rem; left: 0";
 marks.insertAdjacentElement('beforeend', mark);
 
 let mark2 = document.createElement('img');
-mark2.src = 'images/checkmark.png'
+mark2.src = 'images/checkMark.png'
 mark2.style.cssText = "position: absolute;z-index: 11;width: 4rem;height: 4rem;top: -4.5rem;left: 11rem;";
 marks.insertAdjacentElement('beforeend', mark2);
 
 let mark3 = document.createElement('img');
-mark3.src = 'images/checkmark.png'
+mark3.src = 'images/checkMark.png'
 mark3.style.cssText = "position: absolute;z-index: 11;width: 4rem;height: 4rem;top: -5rem;left: 26rem;";
 marks.insertAdjacentElement('beforeend', mark3);
 

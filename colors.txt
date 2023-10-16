@@ -1,7 +1,0 @@
-1. #ebc08d main
-2. #48416a first-bg
-3. #9dbfed blue
-4. #b79af4 violet
-5. #eeab9b peach
-6. #383258 dark 
-7. #51487e second-bg
