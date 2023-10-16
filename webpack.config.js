@@ -13,11 +13,11 @@ module.exports = {
         filename: 'index.js',
         assetModuleFilename: '[name][ext]'
     },
-    /* performance: {
+    performance: {
         hints: false,
         maxAssetSize: 512000,
         maxEntrypointSize: 512000
-    }, */
+    }, 
     module:{
         rules:[
             {

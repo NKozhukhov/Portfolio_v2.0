@@ -1,3 +1,6 @@
-import './fonts/bold_Kreadon.ttf'
-import './fonts/light_Kreadon.ttf'
-import './fonts/regular_Kreadon.ttf'
+import React from 'react'
+import ReactDOM from "react-dom"
+import App from "./app"
+import "./style/main.sass"
+
+ReactDOM.render(<App />, document.getElementById('app'))
