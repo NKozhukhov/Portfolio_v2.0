@@ -13,6 +13,14 @@ module.exports = {
         filename: 'index.js',
         assetModuleFilename: '[name][ext]'
     },
+    devServer: {
+        port: 8000,
+        compress: true,
+        hot: true,
+        static: {
+            directory: path.join(__dirname, 'dist')
+        }
+    },
     performance: {
         hints: false,
         maxAssetSize: 512000,
