@@ -3,7 +3,6 @@ import "../../style/main.sass"
 import SkillsBox from "./skillsBox"
 import Heading from "../heading"
 
-
 class SectionSkills extends React.Component {
     render(){
         return (

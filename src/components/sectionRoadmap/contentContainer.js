@@ -20,7 +20,7 @@ class ContentContainer extends React.Component {
             <div className="content-container">
                 <div className="rotate">
                 </div>
-                <ContentBox className="content-box active" image={html} id="content1" text="HTML"/>
+                <ContentBox className="content-box" image={html} id="content1" text="HTML"/>
                 <ContentBox className="content-box" image={css} id="content2" text="CSS"/>
                 <ContentBox className="content-box" image={git} id="content3" text="GIT"/>
                 <ContentBox className="content-box" image={js} id="content4" text="JavaScript"/>

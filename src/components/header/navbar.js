@@ -1,10 +1,9 @@
 import React from 'react'
 
-class Navbar extends React.Component {
-    render(){
+const Navbar = () => {
         return (
             <nav className="navbar">
-                <a href="#home" className="active">В начало</a>
+                <a href="#home">В начало</a>
                 <a href="#skills">Мои навыки</a>
                 <a href="#roadmap">Мои планы</a>
                 <a href="#portfolio">Портфолио</a>
@@ -12,6 +11,5 @@ class Navbar extends React.Component {
             </nav>
         )
     }
-}
 
 export default Navbar 

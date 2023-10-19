@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "../../style/main.sass"
 import IconBox from "./iconBox"
 import html from "../../images/html.png"
@@ -12,26 +12,27 @@ import node from "../../images/node.png"
 import db from "../../images/mongodb.png"
 import palette from "../../images/palette.png"
 
+const IconContainer = () => {
 
+    const [active, setActive] = useState(false)
+    const handleMouseOver = () => {setActive(true)}
+    const handleMouseLeave = () => {setActive(false)}
 
-
-class IconContainer extends React.Component {
-    render(){
-        return (
-            <div className="icon-container">
-            <IconBox className="icon-box active" iconId="content1" image={html}/>
-            <IconBox  className="icon-box" iconId="content2" image={css}/>
-            <IconBox  className="icon-box" iconId="content3" image={git}/>
-            <IconBox  className="icon-box" iconId="content4" image={js}/>
-            <IconBox  className="icon-box" iconId="content5" image={api}/>
-            <IconBox  className="icon-box" iconId="content6" image={react}/>
-            <IconBox  className="icon-box" iconId="content7" image={ts}/>
-            <IconBox  className="icon-box" iconId="content8" image={node}/>
-            <IconBox  className="icon-box" iconId="content9" image={db}/>
-            <IconBox  className="icon-box" iconId="content10" image={palette}/>
+    return (
+        <div className="icon-container">
+        <IconBox iconId="content1" image={html} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content2" image={css} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content3" image={git} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content4" image={js} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content5" image={api} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content6" image={react} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content7" image={ts} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content8" image={node} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content9" image={db} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
+        <IconBox iconId="content10" image={palette} className={`${active ? "icon-box active" : "icon-box"}`} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}/>
         </div>
-        )
-    }
+    )
 }
+
 
 export default IconContainer 
