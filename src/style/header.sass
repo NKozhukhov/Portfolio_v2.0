@@ -1,0 +1,32 @@
+@import "./variables.sass"
+
+.header 
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    padding: 1rem 5%
+    background-color: $bg-color
+    display: flex
+    justify-content: space-between
+    align-items: center
+    z-index: 20
+
+.logo 
+    width: 8rem
+    filter: drop-shadow(0 0 2rem $dark-color)
+    cursor: default
+
+.navbar 
+    a 
+        font-size: 1.7rem
+        font-weight: bold
+        color: $text-color
+        margin-left: 4rem
+        transition: 0.3s
+
+.navbar 
+    a:hover
+        color: $main-color
+
+

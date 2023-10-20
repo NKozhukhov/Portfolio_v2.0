@@ -1,0 +1,4 @@
+node_modules
+/package-lock.json
+/src/oldVersion
+/dist/index.js.LICENSE.txt

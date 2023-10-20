@@ -1,14 +1,39 @@
+@import "./header.sass"
+@import "./sectionHome.sass"
+@import "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+@import "./sectionSkills.sass"
+@import "./sectionRoadmap.sass"
 @import "./variables.sass"
-    
+@import "./sectionApi.sass"
+@import "./sectionContacts.sass"
+@import "./footer.sass"
+
+
 *
     margin: 0
     padding: 0
     box-sizing: border-box
+    text-decoration: none
+    border: none
+    outline: none
     scroll-behavior: smooth
+    font-family: "Kreadon", "Arial", sans-serif
 
 html
     font-size: 62.5%
     overflow-x: hidden
     
 body
-    background-color: $second-bg-color
+    background-color: $bg-color
+    color: $text-color
+
+section 
+    min-height: 100vh
+    padding: 15rem 5% 2rem
+
+.heading
+    text-align: center
+    font-size: 5rem
+    margin-bottom: 8rem
+    color: $main-color
+
